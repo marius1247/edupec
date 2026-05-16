@@ -271,8 +271,8 @@
 <footer>
   <span class="footer-copy">© 2025 EDUPEC Ltd. Registered in England and Wales.</span>
   <nav class="footer-links">
-    <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a>
-    <a href="#" onclick="showPage('terms');return false;">Terms &amp; Conditions</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms &amp; Conditions</a>
     <a href="mailto:hello@edupec.com">Contact</a>
   </nav>
 </footer>
@@ -300,9 +300,26 @@ function showPage(name){
   const el=document.getElementById('page-'+name);
   if(!el) return;
   el.style.display='block';
-  if(name!=='home') el.classList.add('active');
+  if(name!=='home'){
+    el.classList.add('active');
+    window.location.hash=name;
+  } else {
+    history.pushState('',document.title,window.location.pathname);
+  }
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+function handleHash(){
+  const hash=window.location.hash.replace('#','');
+  if(hash==='privacy'||hash==='terms'){
+    showPage(hash);
+  } else {
+    showPage('home');
+  }
+}
+
+window.addEventListener('hashchange',handleHash);
+window.addEventListener('load',handleHash);
 
 function handleNotify(e){
   e.preventDefault();
