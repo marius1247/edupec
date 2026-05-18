@@ -126,6 +126,7 @@
     .toc ol li a{color:var(--color-text-muted);text-decoration:none}
     .toc ol li a:hover{color:var(--color-primary)}
     .section-divider{height:1px;background:var(--color-divider);margin:var(--space-10) 0}
+    .risk-note{background:oklch(from var(--color-primary) l c h / 0.06);border:1px solid oklch(from var(--color-primary) l c h / 0.18);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);margin-bottom:var(--space-4);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7}
   </style>
 </head>
 <body>
@@ -166,7 +167,7 @@
             <div class="phone-opt">to build / to combine</div>
           </div>
           <div class="phone-xp">
-            <span class="xp-label">XP</span>
+            <span class="xp-label">Coins</span>
             <div class="xp-bar"><div class="xp-fill"></div></div>
             <span class="xp-num">340 / 500</span>
           </div>
@@ -222,7 +223,7 @@
     <p>EDUPEC Ltd ("EDUPEC", "we", "us", or "our") operates the EDUPEC mobile application (the "App"). This Privacy Policy explains what personal data we collect, why we collect it, how we use and protect it, and your rights regarding that data. By using the App, you agree to the practices described in this policy.</p>
 
     <h2 id="pp-1">1. Data Controller</h2>
-    <p>EDUPEC Ltd is the data controller for personal data processed through the App. We are registered in England and Wales. For any privacy-related questions or requests, contact us at <a href="mailto:privacy@edupec.com">privacy@edupec.com</a>.</p>
+    <p>EDUPEC Ltd is the data controller for personal data processed through the App. We are registered in England and Wales. For any privacy-related questions or requests, contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a>.</p>
 
     <h2 id="pp-2">2. Information We Collect</h2>
 
@@ -256,7 +257,6 @@
       <li>Daily study streak, longest streak, and streak history</li>
       <li>Streak Freeze balance (consumable items that protect your streak on missed days)</li>
       <li>Coin balance (in-app virtual currency)</li>
-      <li>XP (experience points) balance</li>
       <li>Free Books balance (credits to unlock reading content)</li>
       <li>Double Rewards status (temporary 2× coin multiplier)</li>
       <li>Weekly study goal progress (sessions and individual words studied per week)</li>
@@ -268,10 +268,10 @@
       <li>Writing topic title</li>
       <li>Your written response (full text)</li>
       <li>Word count</li>
-      <li>AI feedback results (overall grade, CEFR level estimate, grammar errors, vocabulary/coherence/grammar/task achievement scores, suggested next level, detailed written feedback)</li>
+      <li>AI feedback results (overall grade, CEFR level estimate, grammar errors, vocabulary, coherence, grammar, and task achievement scores, suggested next level, and detailed written feedback)</li>
       <li>Session timestamp</li>
     </ul>
-    <p>Writing history is saved locally on your device using encrypted local storage. It is not uploaded to our servers.</p>
+    <p>Writing history is saved locally on your device using encrypted local storage. It is not uploaded to our servers. Your submitted text is transmitted to our AI subprocessor solely for the purpose of generating feedback and is not used to train AI models.</p>
 
     <h3>2.5 Reading &amp; Offline Data (Stored Locally)</h3>
     <p>The following data is stored locally on your device and is not transmitted to our servers:</p>
@@ -291,7 +291,7 @@
     <ul>
       <li>App version and operating system version</li>
       <li>Device type and platform (iOS or Android)</li>
-      <li>Crash reports and error logs</li>
+      <li>Crash reports and error logs (collected to diagnose and fix technical issues)</li>
       <li>Network connectivity status (online/offline)</li>
     </ul>
 
@@ -301,10 +301,10 @@
     <ul>
       <li>To create and manage your account and authenticate you securely via email/password, Google, or Apple sign-in</li>
       <li>To personalise your learning experience, including your spaced repetition schedule, vocabulary difficulty, and CEFR level recommendations</li>
-      <li>To track and synchronise your learning progress, study streak, XP, and coin balance across sessions and devices</li>
+      <li>To track and synchronise your learning progress, study streak, and Coin balance across sessions and devices</li>
       <li>To enable offline learning by caching content locally on your device and syncing your progress when you reconnect</li>
       <li>To manage your premium subscription status and grant associated benefits (unlimited vocabulary sessions, monthly Streak Freeze allocations, enhanced offline content access)</li>
-      <li>To provide AI writing feedback by transmitting your submitted text to our AI provider for automated analysis (see Section 5)</li>
+      <li>To provide AI writing feedback by transmitting your submitted text to our AI subprocessor for automated analysis (see Section 5)</li>
       <li>To provide text-to-speech audio pronunciations using the ElevenLabs service (see Section 5)</li>
       <li>To gate access to premium and free-tier reading content based on your subscription status and Free Books balance</li>
       <li>To send important service notifications and account-related communications</li>
@@ -318,72 +318,74 @@
     <p>Where the UK GDPR or EU GDPR applies, we process your personal data under the following legal bases:</p>
     <ul>
       <li><strong>Contract performance (Art. 6(1)(b))</strong> — processing necessary to provide the App's core services, including account management, progress tracking, and subscription features.</li>
-      <li><strong>Legitimate interests (Art. 6(1)(f))</strong> — improving the App, preventing fraud, ensuring service security, and analysing aggregate usage patterns. We have assessed that these interests do not override your rights and freedoms.</li>
+      <li><strong>Legitimate interests (Art. 6(1)(f))</strong> — improving the App, preventing fraud, ensuring service security, diagnosing technical issues via crash logs, and analysing aggregate usage patterns. We have assessed that these interests do not override your rights and freedoms.</li>
       <li><strong>Legal obligation (Art. 6(1)(c))</strong> — where retention or disclosure of data is required by applicable law.</li>
-      <li><strong>Consent (Art. 6(1)(a))</strong> — for optional features such as marketing communications or push notifications, where you have explicitly opted in. You may withdraw consent at any time.</li>
+      <li><strong>Consent (Art. 6(1)(a))</strong> — for optional features such as marketing communications or push notifications, where you have explicitly opted in. You may withdraw consent at any time without affecting the lawfulness of prior processing.</li>
     </ul>
+    <p>Where we rely on legitimate interests for processing involving automated tools (including the spaced repetition algorithm and AI writing feedback), we have conducted an assessment concluding that these purposes are proportionate and do not outweigh your interests or fundamental rights.</p>
 
     <div class="section-divider"></div>
 
     <h2 id="pp-5">5. Third-Party Service Providers</h2>
-    <p>We work with the following third-party providers who process data on our behalf or as independent controllers:</p>
+    <p>We work with the following third-party providers who process personal data on our behalf as data processors (or as independent data controllers where indicated). In accordance with UK/EU GDPR Article 28, we have entered into or will enter into data processing agreements with each processor listed below.</p>
     <ul>
-      <li><strong>Supabase</strong> — our backend database and authentication provider. Your account data, profile, and all server-side learning progress are stored on Supabase infrastructure. Supabase is hosted on AWS and processes data in accordance with GDPR. Data may be stored in the EU or US depending on your selected Supabase region.</li>
-      <li><strong>RevenueCat</strong> — subscription and in-app purchase management. RevenueCat receives your app user ID and communicates with Apple and Google to verify your subscription status. It does not receive your payment card details. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat's Privacy Policy</a>.</li>
-      <li><strong>ElevenLabs</strong> — text-to-speech provider used to generate audio pronunciations for vocabulary words. Words (not personally identifiable) are sent to ElevenLabs for audio synthesis. See <a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">ElevenLabs' Privacy Policy</a>.</li>
-      <li><strong>AI writing feedback provider</strong> — text you submit in the Writing Practice feature is sent to an AI provider to generate automated feedback. This text is not linked to your account identity unless you explicitly save the writing session. We instruct our provider not to use submitted content for AI model training.</li>
-      <li><strong>Apple Inc.</strong> — App Store distribution, Apple Sign In authentication (iOS), and in-app purchase processing. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>.</li>
-      <li><strong>Google LLC</strong> — Google Play distribution, Google Sign In authentication, and in-app purchase processing (Android). See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</li>
+      <li><strong>Supabase, Inc.</strong> — our backend database and authentication provider. Your account data, profile, and all server-side learning progress are stored on Supabase infrastructure hosted on AWS. Data may be stored in the EU or US depending on project configuration. Supabase processes data under Standard Contractual Clauses (SCCs) where required. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase's Privacy Policy</a>.</li>
+      <li><strong>RevenueCat, Inc.</strong> — subscription and in-app purchase management. RevenueCat receives your anonymised app user ID and subscription status from Apple and Google. It does not receive your payment card details. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat's Privacy Policy</a>.</li>
+      <li><strong>ElevenLabs, Inc.</strong> — text-to-speech provider used to generate audio pronunciations for vocabulary words. Individual vocabulary words (not personally identifiable) are sent to ElevenLabs for audio synthesis. See <a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">ElevenLabs' Privacy Policy</a>.</li>
+      <li><strong>AI writing feedback subprocessor</strong> — text you submit in the Writing Practice feature is sent to a third-party AI provider for automated feedback generation. This text is processed solely to produce feedback and is not linked to your account identity. We instruct our provider not to use submitted content for AI model training. We will update this policy to name the specific provider once our data processing agreement is in place.</li>
+      <li><strong>Apple Inc.</strong> — App Store distribution, Apple Sign In authentication (iOS), and in-app purchase processing. Acts as an independent data controller for its own services. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>.</li>
+      <li><strong>Google LLC</strong> — Google Play distribution, Google Sign In authentication, and in-app purchase processing (Android). Acts as an independent data controller for its own services. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</li>
     </ul>
-    <p>We do not sell your personal data to any third party. We do not use your personal data for advertising or tracking purposes.</p>
+    <p>We do not sell your personal data to any third party. We do not use your personal data for advertising or tracking purposes. We will update this section if we engage additional subprocessors that process your personal data.</p>
 
     <div class="section-divider"></div>
 
     <h2 id="pp-6">6. Data Retention</h2>
-    <p>We retain your personal data for as long as your account is active. If you request account deletion through the App's account settings, we will delete or anonymise your personal data within 30 days, except where retention is required by applicable law (for example, financial or tax records may be retained for up to 7 years).</p>
-    <p>Locally cached data on your device is automatically cleared after 24 hours (React Query content cache) or when you uninstall the App. Offline sync queue items are deleted after successful synchronisation. Writing history stored locally is retained until you delete it manually or uninstall the App.</p>
+    <p>We retain your personal data for as long as your account is active. If you request account deletion through the App's account settings, we will delete or anonymise your personal data within 30 days, except where retention is required by applicable law (for example, financial or tax records may be retained for up to 7 years in accordance with UK law).</p>
+    <p>Locally cached data on your device is automatically cleared after 24 hours (vocabulary and content cache) or when you uninstall the App. Offline sync queue items are deleted after successful synchronisation. Writing history stored locally is retained on your device until you delete it manually or uninstall the App.</p>
 
     <div class="section-divider"></div>
 
     <h2 id="pp-7">7. Children's Privacy</h2>
-    <p>The App is not directed to children under the age of 13 (or under 16 where the UK GDPR or EU GDPR applies without parental consent). We do not knowingly collect personal data from children below these ages. If you are a parent or guardian and believe your child has provided personal data to us without your consent, please contact us at <a href="mailto:privacy@edupec.com">privacy@edupec.com</a> and we will promptly delete that data.</p>
+    <p>The App is not directed to children under the age of 13 (or under 16 where the UK GDPR or EU GDPR applies without verified parental consent). We do not knowingly collect personal data from children below these ages. If you are a parent or guardian and believe your child has provided personal data to us without your consent, please contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> and we will promptly delete that data.</p>
 
     <div class="section-divider"></div>
 
     <h2 id="pp-8">8. Your Rights</h2>
-    <p>Depending on your jurisdiction, you have the following rights regarding your personal data. To exercise any right, contact us at <a href="mailto:privacy@edupec.com">privacy@edupec.com</a>. We will respond within 30 days (or sooner as required by law).</p>
+    <p>Depending on your jurisdiction, you have the following rights regarding your personal data. To exercise any right, contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a>. We will respond within one calendar month (or sooner as required by applicable law).</p>
     <ul>
       <li><strong>Access (Art. 15 UK/EU GDPR)</strong> — request a copy of the personal data we hold about you.</li>
       <li><strong>Rectification (Art. 16)</strong> — request correction of inaccurate or incomplete data.</li>
-      <li><strong>Erasure / Right to be Forgotten (Art. 17)</strong> — request deletion of your personal data. You can also initiate this directly by deleting your account in the App.</li>
+      <li><strong>Erasure / Right to be Forgotten (Art. 17)</strong> — request deletion of your personal data. You can also initiate this directly by deleting your account within the App.</li>
       <li><strong>Restriction of processing (Art. 18)</strong> — request that we limit how we use your data in certain circumstances.</li>
       <li><strong>Data portability (Art. 20)</strong> — request your data in a structured, machine-readable format.</li>
       <li><strong>Objection (Art. 21)</strong> — object to processing based on legitimate interests.</li>
+      <li><strong>Rights in relation to automated decision-making (Art. 22)</strong> — the App uses automated logic (the spaced repetition algorithm) to determine the frequency and order of vocabulary review. This does not produce legal or similarly significant effects on you. You may contact us to request human review of any such determination.</li>
       <li><strong>Withdraw consent</strong> — where processing is based on your consent, withdraw it at any time without affecting the lawfulness of prior processing.</li>
-      <li><strong>Lodge a complaint</strong> — you have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>, or with the relevant supervisory authority in your country.</li>
+      <li><strong>Lodge a complaint</strong> — you have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>, or with the relevant supervisory authority in your country of residence.</li>
     </ul>
 
     <div class="section-divider"></div>
 
     <h2 id="pp-9">9. Security</h2>
-    <p>We implement industry-standard technical and organisational security measures to protect your data, including encrypted data transmission (HTTPS/TLS), hashed password storage via Supabase Auth, role-based access controls on our backend, and session token management. No method of internet transmission is 100% secure. We cannot guarantee absolute security and encourage you to use a strong, unique password for your EDUPEC account.</p>
+    <p>We implement industry-standard technical and organisational security measures to protect your data, including encrypted data transmission (HTTPS/TLS), hashed password storage via Supabase Auth, row-level security (RLS) policies on our database, and session token management. No method of internet transmission is 100% secure. In the event of a personal data breach that is likely to result in a risk to your rights and freedoms, we will notify the relevant supervisory authority within 72 hours and, where required, notify affected users without undue delay. We encourage you to use a strong, unique password for your EDUPEC account.</p>
 
     <div class="section-divider"></div>
 
     <h2 id="pp-10">10. International Data Transfers</h2>
-    <p>Your data may be transferred to and processed in countries outside your own, including the United States, where Supabase (AWS infrastructure), RevenueCat, and ElevenLabs are headquartered or operate servers. Such transfers are carried out in compliance with applicable data protection law using standard contractual clauses (SCCs) or other appropriate safeguards where required by the UK GDPR or EU GDPR.</p>
+    <p>Your data may be transferred to and processed in countries outside the UK or European Economic Area (EEA), including the United States, where Supabase (AWS infrastructure), RevenueCat, and ElevenLabs are headquartered or operate servers. Such transfers are carried out using appropriate safeguards — including UK International Data Transfer Agreements (IDTAs) or EU Standard Contractual Clauses (SCCs) — as required by the UK GDPR or EU GDPR. You may request a copy of the applicable transfer mechanism by contacting us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a>.</p>
 
     <div class="section-divider"></div>
 
     <h2 id="pp-11">11. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time to reflect changes in the App, our practices, or applicable law. We will notify you of material changes via in-app notification or by email to your registered address. The "Last updated" date at the top of this page indicates when the policy was most recently revised. Continued use of the App after changes take effect constitutes your acceptance of the updated policy.</p>
+    <p>We may update this Privacy Policy from time to time to reflect changes in the App, our practices, or applicable law. We will notify you of material changes via in-app notification or by email to your registered address at least 14 days before changes take effect. The "Last updated" date at the top of this page indicates when the policy was most recently revised. Continued use of the App after changes take effect constitutes your acceptance of the updated policy.</p>
 
     <div class="section-divider"></div>
 
     <h2 id="pp-12">12. Contact Us</h2>
     <p><strong>EDUPEC Ltd</strong><br>
     Registered in England and Wales<br>
-    Email: <a href="mailto:privacy@edupec.com">privacy@edupec.com</a></p>
+    Email: <a href="mailto:contact@edupec.uk">contact@edupec.uk</a></p>
   </div>
 </div>
 
@@ -404,7 +406,7 @@
         <li><a href="#tc-2">Account Registration</a></li>
         <li><a href="#tc-3">Licence Grant</a></li>
         <li><a href="#tc-4">App Features</a></li>
-        <li><a href="#tc-5">Virtual Currency — Coins, XP &amp; Free Books</a></li>
+        <li><a href="#tc-5">Virtual Currency — Coins &amp; Free Books</a></li>
         <li><a href="#tc-6">Streak System &amp; Streak Freezes</a></li>
         <li><a href="#tc-7">Subscriptions &amp; Payments</a></li>
         <li><a href="#tc-8">AI Writing Feature</a></li>
@@ -422,97 +424,97 @@
       </ol>
     </div>
 
-    <p>These Terms and Conditions ("Terms") govern your access to and use of the EDUPEC mobile application (the "App") provided by EDUPEC Ltd ("EDUPEC", "we", "us", or "our"). By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, do not download or use the App.</p>
+    <p>These Terms and Conditions ("Terms") govern your access to and use of the EDUPEC mobile application (the "App") provided by EDUPEC Ltd ("EDUPEC", "we", "us", or "our"), a company registered in England and Wales. By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, do not download or use the App.</p>
 
     <h2 id="tc-1">1. Eligibility</h2>
-    <p>You must be at least 13 years old to create an account and use the App (or at least 16 in jurisdictions where the UK GDPR or EU GDPR applies, unless verifiable parental consent is provided). Users under 18 should review these Terms with a parent or guardian. By using the App, you represent and warrant that you meet these age requirements. If we discover that an account belongs to a user under the minimum age, we reserve the right to suspend or delete that account.</p>
+    <p>You must be at least 13 years old to create an account and use the App (or at least 16 in jurisdictions where the UK GDPR or EU GDPR applies without verified parental consent). Users under 18 should review these Terms with a parent or guardian. By using the App, you represent and warrant that you meet these age requirements. If we discover that an account belongs to a user below the minimum age, we reserve the right to suspend or delete that account without notice and without liability to you.</p>
 
     <h2 id="tc-2">2. Account Registration</h2>
-    <p>You may use the App anonymously (identified by a device ID) before creating an account. To access all features and sync your progress across devices, you must register an account using one of the following methods:</p>
+    <p>You may explore limited App functionality anonymously (identified by a device ID) before creating an account. To access all features and synchronise your progress across devices, you must register an account using one of the following methods:</p>
     <ul>
       <li><strong>Email and password</strong> — you must verify your email address via a confirmation link before your account is fully activated.</li>
       <li><strong>Sign in with Google</strong> — via Google OAuth, handled through Supabase Auth.</li>
       <li><strong>Sign in with Apple</strong> — via Apple OAuth, handled through Supabase Auth.</li>
     </ul>
-    <p>You agree to provide accurate and current information when registering. You are solely responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You must notify us immediately at <a href="mailto:legal@edupec.com">legal@edupec.com</a> if you suspect any unauthorised access to your account.</p>
+    <p>You agree to provide accurate and current information when registering. You are solely responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You must notify us immediately at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> if you suspect any unauthorised access to your account. EDUPEC will not be liable for any loss or damage arising from your failure to maintain the security of your credentials.</p>
 
     <h2 id="tc-3">3. Licence Grant</h2>
-    <p>EDUPEC grants you a limited, personal, non-exclusive, non-transferable, revocable licence to install and use the App on your own mobile device(s) solely for personal, non-commercial educational purposes, in accordance with these Terms. This licence does not include the right to sublicense, copy, modify, distribute, sell, resell, reverse engineer, decompile, disassemble, or create derivative works of the App or any of its content.</p>
+    <p>Subject to your compliance with these Terms, EDUPEC grants you a limited, personal, non-exclusive, non-transferable, revocable licence to install and use the App on your own mobile device(s) solely for personal, non-commercial educational purposes. This licence does not include the right to sublicense, copy, modify, distribute, sell, resell, reverse engineer, decompile, disassemble, or create derivative works of the App or any of its content. All rights not expressly granted are reserved by EDUPEC.</p>
 
     <h2 id="tc-4">4. App Features</h2>
     <p>The App provides the following core learning features. Feature availability varies by subscription tier (Free or Premium):</p>
     <ul>
-      <li><strong>Vocabulary Training (Flashcards &amp; Spaced Repetition)</strong> — flashcard-based sessions using a proprietary spaced repetition algorithm. Words are presented with their definition, example sentence, synonyms, CEFR level, category, and native language translation. Two question modes are available: type-the-word and fill-the-gap. Knowledge scores per word (0–100) determine review frequency. Free users are limited to 20-word sessions; Premium users have unlimited sessions.</li>
-      <li><strong>Grammar Lessons</strong> — 2,200+ structured lessons organised by grammatical topic (verb forms, conditionals, modals, articles, relative clauses, advanced rhetoric, and style). Each lesson includes an explanation and interactive exercises in fill-the-gap and multiple-choice (MCQ) formats. Users may bookmark lessons for spaced review via the "Add to Review" feature. Completing a lesson awards 20 XP.</li>
-      <li><strong>Reading Library</strong> — a curated library of classical and non-fiction texts organised by category and CEFR level, including public domain works. Free users have access to a rotating "Free this month" selection. Full library access requires a Premium subscription or Free Books balance credits. Reading position is saved locally per book.</li>
+      <li><strong>Vocabulary Training (Flashcards &amp; Spaced Repetition)</strong> — flashcard-based sessions using a proprietary spaced repetition algorithm. Words are presented with their definition, example sentence, synonyms, CEFR level, category, and native language translation. Two question modes are available: type-the-word and fill-the-gap. Knowledge scores per word (0–100) determine review frequency. Free users are limited to 20-word sessions per day; Premium users have unlimited sessions.</li>
+      <li><strong>Grammar Lessons</strong> — 2,200+ structured lessons organised by grammatical topic (verb forms, conditionals, modals, articles, relative clauses, advanced rhetoric, and style). Each lesson includes an explanation and interactive exercises in fill-the-gap and multiple-choice (MCQ) formats. Users may bookmark lessons for review via the "Add to Review" feature.</li>
+      <li><strong>Reading Library</strong> — a curated library of classical and non-fiction texts organised by category and CEFR level. Free users have access to a rotating "Free this month" selection. Full library access requires a Premium subscription or Free Books balance credits. Reading position is saved locally per book.</li>
       <li><strong>Writing Practice</strong> — AI-powered writing exercises where you respond to a topic prompt. Submissions receive automated feedback including an overall grade (A–D), CEFR level estimate, grammar error annotations, and scores for vocabulary, coherence, grammar, and task achievement. Writing sessions may be saved locally to your device.</li>
-      <li><strong>Listening Practice</strong> — audio-based learning exercises using text-to-speech pronunciation audio (powered by ElevenLabs) and pre-recorded content.</li>
+      <li><strong>Listening Practice</strong> — audio-based learning exercises using text-to-speech audio pronunciations powered by ElevenLabs and pre-recorded content.</li>
       <li><strong>Word Collection</strong> — save vocabulary words to a personal collection for focused review and custom study sessions.</li>
-      <li><strong>Games</strong> — interactive vocabulary and language games.</li>
+      <li><strong>Games</strong> — interactive vocabulary and language games designed to reinforce learning in an engaging format. Specific game types and rules are described within the App.</li>
       <li><strong>Offline Mode</strong> — content is cached locally to allow learning without an internet connection. Offline progress is automatically queued and synced to our servers upon reconnection. Offline content availability depends on your subscription tier.</li>
     </ul>
-    <p>EDUPEC reserves the right to add, modify, or remove features at any time. We will endeavour to provide reasonable notice of material changes to existing features.</p>
+    <p>EDUPEC reserves the right to add, modify, or remove features at any time. We will endeavour to provide reasonable in-app notice of material changes to core features that users rely on.</p>
 
-    <h2 id="tc-5">5. Virtual Currency — Coins, XP &amp; Free Books</h2>
-    <p><strong>Coins</strong> are an in-app virtual currency earned through learning activity (completing vocabulary sessions, grammar lessons, and other exercises). Coins can be used within the App to unlock consumable items such as Streak Freezes and Double Rewards. Coins have no real-world monetary value, cannot be exchanged for cash, cannot be transferred between users, and cannot be redeemed outside the App.</p>
-    <p><strong>XP (Experience Points)</strong> are earned for completing lessons and sessions. XP reflects your learning progress within the App and has no monetary value.</p>
-    <p><strong>Free Books Balance</strong> consists of credits that may be used to unlock individual books in the Reading Library. Credits are earned through learning activity, awarded by the App, or included in your subscription. Credits have no monetary value, are non-refundable, and expire if unused for an extended period.</p>
-    <p><strong>Double Rewards</strong> is a temporary feature that doubles Coin earnings for a limited period. It is granted automatically under certain conditions within the App and expires at the time displayed.</p>
-    <p>EDUPEC reserves the right to modify the virtual currency economy, earning rates, item costs, and available rewards at any time without prior notice and without any obligation to compensate existing balances.</p>
+    <h2 id="tc-5">5. Virtual Currency — Coins &amp; Free Books</h2>
+    <p><strong>Coins</strong> are an in-app virtual currency earned through learning activity (completing vocabulary sessions, grammar lessons, and other exercises). Coins can be used within the App to unlock consumable items such as Streak Freezes and Double Rewards. Coins have no real-world monetary value, cannot be exchanged for cash, cannot be transferred between users, and cannot be redeemed outside the App. Any Coin balance remaining at the time of account deletion is forfeited without compensation.</p>
+    <p><strong>Free Books Balance</strong> consists of credits that may be used to unlock individual books in the Reading Library. Credits are earned through learning activity or included in your subscription. Credits have no monetary value, are non-refundable, and may expire if an account is inactive for an extended period.</p>
+    <p><strong>Double Rewards</strong> is a temporary feature that doubles Coin earnings for a limited period. It is granted automatically under certain conditions within the App and expires at the time displayed in the App.</p>
+    <p>EDUPEC reserves the right to modify the virtual currency economy, earning rates, item costs, and available rewards at any time. We will provide reasonable in-app notice of material changes to the earning or spending value of Coins.</p>
 
     <h2 id="tc-6">6. Streak System &amp; Streak Freezes</h2>
     <p>The App tracks your daily study streak — the number of consecutive calendar days on which you have completed at least one qualifying learning session. A qualifying session includes completing a vocabulary training session, a grammar lesson, a writing exercise, or another activity designated as streak-eligible in the App.</p>
     <p>If you do not complete a qualifying session on a given calendar day, your streak is at risk of being reset to zero. Streak Freezes allow you to protect your streak against missed days:</p>
     <ul>
-      <li>Each Streak Freeze protects against one missed day.</li>
-      <li>Free users may earn Streak Freezes through learning activity or by watching rewarded content.</li>
+      <li>Each Streak Freeze protects against one missed calendar day.</li>
+      <li>Free users may earn Streak Freezes through learning activity.</li>
       <li>Premium subscribers receive a monthly allocation of Streak Freezes automatically upon their first login each month.</li>
-      <li>When you sign in after missing one or more days, the App will prompt you to use available Streak Freezes — one per missed day. If you lack sufficient Streak Freezes or choose not to use them, your streak will reset to zero.</li>
+      <li>When you sign in after missing one or more days, the App will prompt you to use available Streak Freezes — one per missed day. If you have insufficient Streak Freezes or choose not to use them, your streak will reset to zero.</li>
     </ul>
-    <p>Streak resets are permanent. EDUPEC accepts no responsibility for streak losses resulting from missed sessions, device failure, loss of internet connectivity, App outages, system clock changes, timezone changes, or any other cause. Streak data is the result of your own learning behaviour and EDUPEC makes no representations about its long-term availability.</p>
+    <p>Streak resets are permanent. EDUPEC accepts no responsibility for streak losses resulting from missed sessions, device failure, loss of internet connectivity, App outages, system clock discrepancies, timezone changes, or any other cause outside EDUPEC's direct control. Streak data is a product of your own learning behaviour and EDUPEC makes no representations about its long-term availability or accuracy.</p>
 
     <h2 id="tc-7">7. Subscriptions &amp; Payments</h2>
 
     <h3>7.1 Premium Subscription</h3>
-    <p>A Premium subscription unlocks additional features including unlimited vocabulary sessions (Free users are capped at 20 words per session), a monthly Streak Freeze allocation, enhanced offline content caching, and full Reading Library access. Premium subscriptions are offered on a monthly or annual basis at prices shown in the App at the time of purchase.</p>
+    <p>A Premium subscription unlocks additional features including unlimited vocabulary sessions, a monthly Streak Freeze allocation, enhanced offline content caching, and full Reading Library access. Premium subscriptions are offered on a monthly or annual basis at prices displayed in the App at the time of purchase. Prices are inclusive of any applicable taxes where required by law.</p>
 
     <h3>7.2 Billing</h3>
     <p>All subscriptions are purchased and billed through the Apple App Store (iOS) or Google Play Store (Android). Payment is charged to your App Store or Play Store account upon confirmation of purchase. EDUPEC does not directly process, store, or have access to your payment card information.</p>
 
     <h3>7.3 Auto-Renewal</h3>
-    <p>Subscriptions automatically renew at the end of each billing period (monthly or annual) unless you cancel at least 24 hours before the renewal date. The renewal charge is at the same price as the original subscription unless you have been notified of a price change in advance.</p>
+    <p>Subscriptions automatically renew at the end of each billing period (monthly or annual) unless you cancel at least 24 hours before the renewal date. You will be reminded of upcoming renewals in accordance with Apple App Store or Google Play policies. The renewal charge is at the same price as the original subscription unless you have been notified of a price change in advance.</p>
 
     <h3>7.4 Cancellation</h3>
-    <p>You may cancel your subscription at any time through your Apple App Store or Google Play account settings. Cancellation takes effect at the end of your current billing period. You will retain access to Premium features until the period ends. No partial refunds are issued for the unused portion of a billing period.</p>
+    <p>You may cancel your subscription at any time through your Apple App Store or Google Play account settings. Cancellation takes effect at the end of your current billing period. You will retain access to Premium features until the period ends. No partial refunds are issued for any unused portion of a billing period, except where required by applicable consumer law.</p>
 
     <h3>7.5 Refunds</h3>
-    <p>All refund requests are governed by the refund policies of Apple App Store or Google Play. EDUPEC does not issue refunds directly. To request a refund, contact Apple Support or Google Play Support through their respective platforms.</p>
+    <p>All refund requests are governed by the refund policies of the Apple App Store or Google Play. EDUPEC does not issue refunds directly. To request a refund, contact Apple Support or Google Play Support through their respective platforms. Nothing in this clause limits any statutory rights you may have as a consumer under the laws of England and Wales or your country of residence.</p>
 
     <h3>7.6 Restore Purchases</h3>
     <p>If you reinstall the App or switch to a new device, you can restore your prior subscription using the "Restore Purchases" option in the App's account settings. Subscription status is verified in real time via RevenueCat.</p>
 
     <h3>7.7 Price Changes</h3>
-    <p>EDUPEC may change subscription prices at any time. Where required by law or App Store policy, you will be notified of price changes before your next renewal date. Continued subscription after a price change constitutes acceptance of the new price.</p>
+    <p>EDUPEC may change subscription prices at any time. Where required by applicable law or App Store policy, you will be notified of price changes before your next renewal date and given the opportunity to cancel before the new price takes effect. Continued subscription after a price change constitutes acceptance of the new price.</p>
 
     <h2 id="tc-8">8. AI Writing Feature</h2>
     <p>The Writing Practice feature uses third-party AI services to generate automated feedback on your writing submissions. By submitting text through this feature, you:</p>
     <ul>
-      <li>Acknowledge that your submitted text will be transmitted to our AI provider for processing.</li>
+      <li>Acknowledge that your submitted text will be transmitted to our AI subprocessor for processing solely to generate feedback.</li>
       <li>Confirm that the text you submit does not contain unlawful, defamatory, harassing, hateful, obscene, or privacy-violating content, or content that infringes the intellectual property rights of any third party.</li>
-      <li>Understand that AI-generated feedback is for educational purposes only and does not constitute professional language certification, formal assessment, or legal, medical, or other expert advice.</li>
-      <li>Understand that AI feedback may occasionally contain errors or inaccuracies and should be used as a learning guide rather than a definitive linguistic authority.</li>
+      <li>Understand that AI-generated feedback is provided for educational purposes only and does not constitute professional language certification, formal assessment, or any form of legal, medical, or other expert advice.</li>
+      <li>Understand that AI feedback may contain errors or inaccuracies and should be used as a learning guide rather than a definitive linguistic authority.</li>
+      <li>Understand that the AI grading system (A–D grades and CEFR level estimates) is a heuristic tool and does not produce legally binding assessments of your language proficiency.</li>
     </ul>
-    <p>EDUPEC is not responsible for the accuracy, completeness, or fitness for purpose of AI-generated writing feedback.</p>
+    <p>EDUPEC is not responsible for the accuracy, completeness, or fitness for purpose of AI-generated writing feedback. You should not rely on AI feedback for any high-stakes language assessment or certification purpose.</p>
 
     <h2 id="tc-9">9. Offline Mode &amp; Sync</h2>
     <p>The App supports offline use by caching certain content locally on your device. When you are offline:</p>
     <ul>
       <li>Previously cached vocabulary, grammar lessons, and exercises are available for continued study.</li>
       <li>Learning actions (such as completing a grammar lesson) are queued locally in an offline sync queue and automatically submitted to our servers when internet connectivity is restored.</li>
-      <li>Streaks and progress are maintained locally and reconciled server-side upon reconnection.</li>
+      <li>Streak data and progress are maintained locally and reconciled server-side upon reconnection.</li>
       <li>Not all content is available offline. Premium subscribers have access to a broader range of cached content than Free users.</li>
     </ul>
-    <p>EDUPEC does not guarantee that all App content or features will be accessible offline and accepts no liability for data loss arising from sync failures, device storage limitations, or App uninstallation.</p>
+    <p>EDUPEC does not guarantee that all App content or features will be accessible offline. EDUPEC accepts no liability for data loss, progress loss, or streak resets arising from sync failures, device storage limitations, App uninstallation, or extended periods of offline use.</p>
 
     <h2 id="tc-10">10. Acceptable Use</h2>
     <p>You agree not to use the App in any way that:</p>
@@ -520,65 +522,66 @@
       <li>Violates any applicable local, national, or international law or regulation</li>
       <li>Is fraudulent, deceptive, or misleading</li>
       <li>Involves reverse engineering, decompiling, disassembling, or otherwise attempting to derive the source code of the App</li>
-      <li>Uses automated scripts, bots, scrapers, macros, or other automated means to interact with the App or circumvent session limits</li>
+      <li>Uses automated scripts, bots, scrapers, macros, or other automated means to interact with the App, circumvent session limits, or artificially inflate streaks or Coin balances</li>
       <li>Attempts to gain unauthorised access to EDUPEC's systems, servers, databases, or other users' accounts</li>
       <li>Interferes with or disrupts the integrity, performance, or availability of the App or its infrastructure</li>
       <li>Exploits, harms, or attempts to exploit or harm minors in any way</li>
-      <li>Submits false, misleading, or fraudulent information during onboarding or in writing submissions</li>
+      <li>Submits false, misleading, or harmful content through the Writing Practice feature or any other input</li>
       <li>Reproduces, distributes, or publicly displays App content (including vocabulary, grammar lessons, or reading texts) without our prior written permission</li>
     </ul>
-    <p>Violation of these rules may result in immediate suspension or termination of your account.</p>
+    <p>Violation of these rules may result in immediate suspension or permanent termination of your account without notice and without refund of any subscription fees.</p>
 
     <h2 id="tc-11">11. Intellectual Property</h2>
-    <p>All content within the App — including but not limited to the vocabulary database, phrasal verb library, grammar lessons and exercises, example sentences, audio recordings (including ElevenLabs-generated pronunciations), user interface design, illustrations, branding, and software code — is the property of EDUPEC Ltd or its licensors and is protected by copyright, trademark, database rights, and other intellectual property laws.</p>
-    <p>Your use of the App does not grant you any ownership rights in any App content. You may not reproduce, copy, republish, distribute, or commercially exploit any App content without prior written permission from EDUPEC.</p>
-    <p>Classical public domain literary texts included in the Reading Library (such as works by Jane Austen, Fyodor Dostoevsky, Friedrich Nietzsche, Marcus Aurelius, Charlotte Brontë, and F. Scott Fitzgerald) remain in the public domain. However, EDUPEC's selection, curation, structuring, and presentation of such texts within the App is proprietary.</p>
+    <p>All content within the App — including but not limited to the vocabulary database, phrasal verb library, grammar lessons and exercises, example sentences, audio recordings (including ElevenLabs-generated pronunciations), user interface design, illustrations, branding, software code, and selection and arrangement of content — is the property of EDUPEC Ltd or its licensors and is protected by copyright, trademark, database rights, and other intellectual property laws of England and Wales and applicable international treaties.</p>
+    <p>Your use of the App does not grant you any ownership rights in any App content. You may not reproduce, copy, republish, distribute, publicly display, or commercially exploit any App content without prior written permission from EDUPEC.</p>
+    <p>Classical public domain literary texts included in the Reading Library (such as works by Jane Austen, Fyodor Dostoevsky, Friedrich Nietzsche, Marcus Aurelius, Charlotte Brontë, and F. Scott Fitzgerald) remain in the public domain. However, EDUPEC's selection, curation, structuring, and presentation of such texts within the App is proprietary and protected.</p>
 
     <h2 id="tc-12">12. Disclaimer of Warranties</h2>
-    <p>The App is provided on an "as is" and "as available" basis, without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement. EDUPEC does not warrant that:</p>
+    <p>The App is provided on an "as is" and "as available" basis, without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement. To the fullest extent permitted by applicable law, EDUPEC does not warrant that:</p>
     <ul>
-      <li>The App will be uninterrupted, error-free, or free from viruses or other harmful components</li>
-      <li>Any errors in the App will be corrected</li>
-      <li>The App or its servers are free from harmful components</li>
+      <li>The App will be uninterrupted, error-free, or free from harmful components at all times</li>
+      <li>Any errors or defects in the App will be corrected within a given timeframe</li>
       <li>Your use of the App will result in specific language learning outcomes or English proficiency improvements</li>
       <li>AI-generated writing feedback will be accurate, complete, or appropriate for your individual needs</li>
+      <li>The App will be available in all geographic locations</li>
     </ul>
+    <p>Nothing in this section affects your statutory rights as a consumer under the laws of England and Wales or your country of residence, including any implied terms that cannot be excluded by law.</p>
 
     <h2 id="tc-13">13. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by applicable law, EDUPEC Ltd and its officers, directors, employees, contractors, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to your use of or inability to use the App, including but not limited to:</p>
+    <p>To the maximum extent permitted by applicable law, EDUPEC Ltd and its officers, directors, employees, contractors, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to your use of, or inability to use, the App, including but not limited to:</p>
     <ul>
-      <li>Loss of data, progress records, study streaks, or virtual items (Coins, XP, Streak Freezes, Free Books credits)</li>
-      <li>Loss of access due to account suspension or termination</li>
+      <li>Loss of data, progress records, study streaks, or virtual items (Coins, Streak Freezes, Free Books credits)</li>
+      <li>Loss of access due to account suspension or termination in accordance with these Terms</li>
       <li>Errors or inaccuracies in AI writing feedback or spaced repetition scheduling</li>
       <li>Service interruptions, downtime, or data loss arising from third-party infrastructure (Supabase, RevenueCat, ElevenLabs, Apple, Google)</li>
     </ul>
-    <p>Our total aggregate liability to you for any claim arising out of or relating to these Terms or the App shall not exceed the greater of: (a) the total amount you paid to EDUPEC in the 12 months preceding the claim, or (b) £10.</p>
-    <p>Nothing in these Terms limits or excludes EDUPEC's liability for death or personal injury caused by our negligence, fraud or fraudulent misrepresentation, or any liability that cannot be limited by law.</p>
+    <p>Our total aggregate liability to you for any and all claims arising out of or relating to these Terms or the App shall not exceed the greater of: (a) the total amount you have paid to EDUPEC (via Apple or Google) in the 12 months immediately preceding the event giving rise to the claim; or (b) £50.</p>
+    <p>Nothing in these Terms limits or excludes EDUPEC's liability for: (i) death or personal injury caused by our negligence; (ii) fraud or fraudulent misrepresentation; (iii) any liability that cannot lawfully be limited or excluded under the laws of England and Wales; or (iv) any liability under the Consumer Rights Act 2015 that cannot be excluded.</p>
 
     <h2 id="tc-14">14. Indemnification</h2>
-    <p>You agree to indemnify, defend, and hold harmless EDUPEC Ltd and its officers, directors, employees, contractors, and agents from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable legal fees) arising from: (a) your use of the App in violation of these Terms; (b) your submission of unlawful or infringing content through the App; or (c) your violation of any applicable law or the rights of any third party.</p>
+    <p>You agree to indemnify, defend, and hold harmless EDUPEC Ltd and its officers, directors, employees, contractors, and agents from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable legal fees) arising from: (a) your use of the App in material violation of these Terms; (b) your submission of unlawful or infringing content through the App; or (c) your violation of any applicable law or the rights of any third party in connection with your use of the App.</p>
 
     <h2 id="tc-15">15. Account Termination</h2>
-    <p>You may delete your account at any time through the App's account settings. Upon deletion, your personal data will be removed in accordance with our Privacy Policy.</p>
-    <p>EDUPEC may suspend or permanently terminate your account without prior notice if you: violate these Terms; engage in fraudulent, abusive, or illegal activity; or pose a risk to the security or integrity of the App or its users. Upon termination by EDUPEC for cause, you are not entitled to a refund of any subscription fees paid.</p>
-    <p>If we discontinue the App entirely, we will provide reasonable advance notice and, where applicable, a pro-rated refund for unused prepaid subscription periods in accordance with applicable consumer law.</p>
+    <p>You may delete your account at any time through the App's account settings. Upon deletion, your personal data will be removed in accordance with our Privacy Policy, and all virtual balances (Coins, Streak Freezes, Free Books credits) will be permanently forfeited without compensation.</p>
+    <p>EDUPEC may suspend or permanently terminate your account without prior notice if you: materially violate these Terms; engage in fraudulent, abusive, or illegal activity; or pose a risk to the security or integrity of the App or its users. Upon termination by EDUPEC for cause, you are not entitled to a refund of any subscription fees paid for the current billing period, except where required by applicable consumer law.</p>
+    <p>If EDUPEC discontinues the App entirely, we will provide at least 30 days' advance notice and, where applicable under consumer law, a pro-rated refund for unused prepaid subscription periods.</p>
 
     <h2 id="tc-16">16. Changes to the App &amp; Terms</h2>
-    <p>EDUPEC reserves the right to modify, update, suspend, or discontinue any feature or aspect of the App at any time. We will endeavour to provide reasonable in-app notice of material changes to features that you rely on.</p>
-    <p>We may revise these Terms at any time. The updated Terms will be posted on our website and within the App, and the "Last updated" date at the top will be revised. We will provide reasonable notice of material changes via in-app notification or by email to your registered address. Your continued use of the App after the effective date of any revision constitutes your acceptance of the updated Terms.</p>
+    <p>EDUPEC reserves the right to modify, update, suspend, or discontinue any feature or aspect of the App at any time. We will endeavour to provide reasonable in-app notice of material changes to core features that users rely on.</p>
+    <p>We may revise these Terms at any time. Updated Terms will be posted at our website and within the App, with the "Last updated" date revised accordingly. We will provide at least 14 days' notice of material changes via in-app notification or by email to your registered address. Your continued use of the App after the effective date of any revision constitutes your acceptance of the updated Terms. If you do not accept the revised Terms, you must cease using the App and may delete your account.</p>
 
     <h2 id="tc-17">17. Governing Law &amp; Dispute Resolution</h2>
-    <p>These Terms are governed by and construed in accordance with the laws of England and Wales. Any dispute arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales, unless mandatory consumer protection laws in your country of residence provide otherwise and cannot be excluded by contract.</p>
-    <p>If you have a complaint about the App, please contact us first at <a href="mailto:legal@edupec.com">legal@edupec.com</a>. We will endeavour to resolve complaints within 14 days.</p>
+    <p>These Terms are governed by and construed in accordance with the laws of England and Wales. Any dispute arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales, subject to any mandatory provisions of consumer protection law in your country of residence that cannot be excluded by contract.</p>
+    <p>Before initiating formal legal proceedings, we ask that you contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> to attempt an informal resolution. We will endeavour to respond to complaints within 14 days. If you are a consumer resident in the EU, you may also have the right to use the EU Online Dispute Resolution (ODR) platform at <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.</p>
 
     <h2 id="tc-18">18. Severability</h2>
-    <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, or if modification is not possible, severed from the Terms. The validity and enforceability of the remaining provisions shall not be affected.</p>
+    <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, or if modification is not possible, severed from the Terms. The validity, legality, and enforceability of the remaining provisions shall not be affected or impaired in any way.</p>
 
     <h2 id="tc-19">19. Contact Us</h2>
-    <p>If you have any questions about these Terms, please contact us:</p>
+    <p>If you have any questions, complaints, or requests regarding these Terms, please contact us:</p>
     <p><strong>EDUPEC Ltd</strong><br>
     Registered in England and Wales<br>
-    Email: <a href="mailto:legal@edupec.com">legal@edupec.com</a></p>
+    Email: <a href="mailto:contact@edupec.uk">contact@edupec.uk</a></p>
   </div>
 </div>
 
@@ -587,7 +590,7 @@
   <nav class="footer-links">
     <a href="#privacy" onclick="showPage('privacy');return false;">Privacy Policy</a>
     <a href="#terms" onclick="showPage('terms');return false;">Terms &amp; Conditions</a>
-    <a href="mailto:hello@edupec.com">Contact</a>
+    <a href="mailto:contact@edupec.uk">Contact</a>
   </nav>
 </footer>
 
