@@ -145,7 +145,7 @@
         <div class="phone-body">
           <div class="phone-header">
             <span class="phone-appname">EDUPEC</span>
-            <span class="phone-streak">🔥 7 days</span>
+            <span class="phone-streak">&#x1F525; 7 days</span>
           </div>
           <div class="phone-card">
             <div class="phone-word">break down</div>
@@ -178,7 +178,7 @@
       <input class="notify-input" type="email" placeholder="your@email.com" required aria-label="Email address">
       <button type="submit" class="btn-primary">Notify me at launch</button>
     </form>
-    <div class="notify-success" id="notify-success">✓ You're on the list — we'll let you know when we launch!</div>
+    <div class="notify-success" id="notify-success">&#x2713; You're on the list — we'll let you know when we launch!</div>
   </section>
 </div>
 
@@ -190,38 +190,125 @@
       Back
     </button>
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: May 2025 · EDUPEC Ltd</p>
-    <p>EDUPEC Ltd ("EDUPEC", "we", "us", or "our") operates the EDUPEC mobile application (the "App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App.</p>
-    <h2>1. Information We Collect</h2>
+    <p class="meta">Last updated: May 2026 &middot; EDUPEC Ltd</p>
+
+    <p>EDUPEC Ltd ("EDUPEC", "we", "us", or "our") operates the EDUPEC mobile application (the "App"). This Privacy Policy explains what personal data we collect, why we collect it, how we use and protect it, and your rights regarding that data.</p>
+
+    <h2>1. Data Controller</h2>
+    <p>EDUPEC Ltd is the data controller for personal data processed through the App. We are registered in England and Wales. You can contact us at <a href="mailto:privacy@edupec.com">privacy@edupec.com</a> with any privacy-related questions.</p>
+
+    <h2>2. Information We Collect</h2>
+    <p><strong>2.1 Account Data</strong></p>
     <ul>
-      <li><strong>Account Data:</strong> Name, email address, and password (stored in hashed form).</li>
-      <li><strong>Usage Data:</strong> Lessons completed, vocabulary studied, quiz results, streak data, and session duration.</li>
-      <li><strong>Device Data:</strong> Device identifiers, OS version, app version, and crash reports.</li>
-      <li><strong>AI Writing Submissions:</strong> Text submitted for AI feedback is processed by our AI provider and not stored beyond the current session unless you save an exercise.</li>
+      <li><strong>Email address</strong> — provided when you register with email and password, or retrieved from your Google or Apple account if you use OAuth sign-in.</li>
+      <li><strong>Password</strong> — never stored in plain text; handled entirely by Supabase Auth using industry-standard hashing.</li>
+      <li><strong>OAuth tokens</strong> — when you sign in with Google or Apple, we receive an authentication token from that provider. We do not receive your Google or Apple password.</li>
     </ul>
-    <h2>2. How We Use Your Information</h2>
+    <p><strong>2.2 Onboarding &amp; Profile Data</strong></p>
+    <p>During onboarding, you provide the following information which is stored in your user profile on our servers:</p>
     <ul>
-      <li>Provide and maintain the App's core functionality</li>
-      <li>Personalise your learning experience and spaced repetition schedule</li>
-      <li>Track your progress, streaks, and XP across sessions</li>
-      <li>Send important service notifications</li>
-      <li>Analyse aggregate usage to improve the App</li>
-      <li>Comply with applicable legal obligations</li>
+      <li>Display name</li>
+      <li>Age category</li>
+      <li>Current English level (A1–C2)</li>
+      <li>Learning goal</li>
+      <li>Weekly study goal (number of sessions per week)</li>
+      <li>Native language / mother tongue (used to display translations)</li>
     </ul>
-    <h2>3. Sharing of Your Information</h2>
-    <p>We do not sell your personal data. We may share information with service providers (e.g. Supabase, AI APIs, analytics tools) who are contractually bound to protect your data, or where required by law.</p>
-    <h2>4. Data Retention</h2>
-    <p>We retain your personal data for as long as your account is active. If you delete your account, we will delete or anonymise your data within 30 days, except where retention is required by law.</p>
-    <h2>5. Children's Privacy</h2>
-    <p>The App is not directed to children under 13 (or 16 under GDPR). We do not knowingly collect data from children. Contact us if you believe a child has provided personal data and we will delete it promptly.</p>
-    <h2>6. Your Rights</h2>
-    <p>You may have the right to access, correct, or delete your personal data; to restrict or object to processing; and to data portability. Contact us at <a href="mailto:privacy@edupec.com">privacy@edupec.com</a>.</p>
-    <h2>7. Security</h2>
-    <p>We implement industry-standard technical and organisational measures to protect your data. No method of transmission over the internet is 100% secure.</p>
-    <h2>8. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes via in-app notification or email.</p>
-    <h2>9. Contact Us</h2>
-    <p><strong>EDUPEC Ltd</strong><br>Email: <a href="mailto:privacy@edupec.com">privacy@edupec.com</a></p>
+    <p><strong>2.3 Learning Progress Data</strong></p>
+    <p>As you use the App, we record and store the following on our servers:</p>
+    <ul>
+      <li>Vocabulary knowledge scores per word and review history</li>
+      <li>Daily study streak, longest streak, and streak history</li>
+      <li>Streak freeze balance (consumable items that protect your streak)</li>
+      <li>Coin balance (in-app currency earned through learning activity)</li>
+      <li>Free Books balance (credits to unlock reading content)</li>
+      <li>Double Rewards status (temporary 2x coin multiplier)</li>
+      <li>Words saved to your collection and words you have chosen to hide ("disliked")</li>
+      <li>Grammar lessons recently accessed</li>
+      <li>Writing session content and AI feedback (where you choose to save sessions)</li>
+    </ul>
+    <p><strong>2.4 Data Stored Locally on Your Device</strong></p>
+    <p>The App stores data locally on your device to support offline use:</p>
+    <ul>
+      <li><strong>SQLite database</strong> — cached lesson and vocabulary content (tagged by your subscription tier: free or premium), pending sync actions (operations performed while offline that are sent to our servers when you reconnect), and recently accessed grammar lessons.</li>
+      <li><strong>AsyncStorage cache</strong> — React Query results (vocabulary data, lesson content) are cached for up to 24 hours to reduce network requests and allow offline access.</li>
+    </ul>
+    <p>This data is stored on your device and is not accessible to EDUPEC unless explicitly synced to our servers.</p>
+    <p><strong>2.5 Subscription &amp; Purchase Data</strong></p>
+    <p>Subscription and purchase transactions are processed by Apple (App Store) or Google (Google Play) and managed via RevenueCat. We receive confirmation of your active entitlements (e.g., whether you have an active premium subscription) but do not receive your payment card details. RevenueCat processes data in accordance with its own Privacy Policy.</p>
+    <p><strong>2.6 Technical &amp; Diagnostic Data</strong></p>
+    <ul>
+      <li>App version and operating system version</li>
+      <li>Device type and platform (iOS or Android)</li>
+      <li>Crash reports and error logs</li>
+      <li>Network connectivity status</li>
+    </ul>
+
+    <h2>3. How We Use Your Information</h2>
+    <ul>
+      <li>To create and manage your account and authenticate you securely</li>
+      <li>To personalise your learning experience, including your spaced repetition schedule and difficulty level</li>
+      <li>To track your progress, study streak, XP, and coin balance across sessions and devices</li>
+      <li>To enable offline learning by caching content locally and syncing your progress when you reconnect</li>
+      <li>To manage your premium subscription status and grant associated benefits (e.g., monthly streak freeze grants, unlimited vocabulary sessions, offline content downloads)</li>
+      <li>To provide AI writing feedback (your submitted text is sent to our AI provider for processing — see Section 5)</li>
+      <li>To send important service and account notifications</li>
+      <li>To analyse aggregate usage patterns and improve the App</li>
+      <li>To comply with applicable legal obligations</li>
+    </ul>
+
+    <h2>4. Legal Basis for Processing (GDPR)</h2>
+    <p>Where GDPR applies, we process your personal data on the following legal bases:</p>
+    <ul>
+      <li><strong>Contract performance</strong> — processing necessary to provide the App's core services to you</li>
+      <li><strong>Legitimate interests</strong> — improving the App, fraud prevention, and service security</li>
+      <li><strong>Legal obligation</strong> — where required by applicable law</li>
+      <li><strong>Consent</strong> — where you have explicitly consented (e.g., optional marketing notifications)</li>
+    </ul>
+
+    <h2>5. Third-Party Service Providers</h2>
+    <p>We share data with the following third parties who process it on our behalf:</p>
+    <ul>
+      <li><strong>Supabase</strong> — our backend database and authentication provider. Your account data, profile, and learning progress are stored on Supabase infrastructure. Supabase is hosted on AWS and processes data in accordance with GDPR.</li>
+      <li><strong>RevenueCat</strong> — subscription and in-app purchase management. RevenueCat receives your app user ID and communicates with Apple and Google to verify your subscription status.</li>
+      <li><strong>Apple Inc.</strong> — App Store distribution, Apple Sign In authentication (iOS), and in-app purchase processing.</li>
+      <li><strong>Google LLC</strong> — Google Play distribution, Google Sign In authentication, and in-app purchase processing (Android).</li>
+      <li><strong>AI writing feedback provider</strong> — text you submit in the writing practice feature is sent to an AI provider for feedback generation. This text is not linked to your identity beyond the current session unless you save the session.</li>
+    </ul>
+    <p>We do not sell your personal data to any third party. We do not use your data for advertising purposes.</p>
+
+    <h2>6. Data Retention</h2>
+    <p>We retain your personal data for as long as your account is active. If you request account deletion, we will delete or anonymise your personal data within 30 days, except where retention is required by applicable law (e.g., financial records). Locally cached data on your device is automatically cleared after 24 hours (React Query cache) or when you uninstall the App.</p>
+
+    <h2>7. Children's Privacy</h2>
+    <p>The App is not directed to children under 13 years of age (or under 16 where GDPR applies). We do not knowingly collect personal data from children below these ages. If you believe a child has provided personal data to us, please contact us at <a href="mailto:privacy@edupec.com">privacy@edupec.com</a> and we will promptly delete that data.</p>
+
+    <h2>8. Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+    <ul>
+      <li><strong>Access</strong> — the right to request a copy of the data we hold about you</li>
+      <li><strong>Rectification</strong> — the right to correct inaccurate data</li>
+      <li><strong>Erasure</strong> — the right to request deletion of your data ("right to be forgotten")</li>
+      <li><strong>Restriction</strong> — the right to restrict how we process your data</li>
+      <li><strong>Portability</strong> — the right to receive your data in a portable format</li>
+      <li><strong>Objection</strong> — the right to object to processing based on legitimate interests</li>
+      <li><strong>Withdraw consent</strong> — where processing is based on consent, the right to withdraw it at any time</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:privacy@edupec.com">privacy@edupec.com</a>. We will respond within 30 days.</p>
+
+    <h2>9. Security</h2>
+    <p>We implement industry-standard technical and organisational security measures, including encrypted data transmission (HTTPS/TLS), hashed password storage, and access controls on our backend infrastructure. No method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+    <h2>10. International Transfers</h2>
+    <p>Your data may be transferred to and processed in countries outside your own, including the United States (where Supabase/AWS and RevenueCat infrastructure may be located). Such transfers are carried out in accordance with applicable data protection law, using standard contractual clauses or other appropriate safeguards where required.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of material changes via in-app notification or email. Continued use of the App after changes take effect constitutes acceptance of the updated policy.</p>
+
+    <h2>12. Contact Us</h2>
+    <p><strong>EDUPEC Ltd</strong><br>
+    Registered in England and Wales<br>
+    Email: <a href="mailto:privacy@edupec.com">privacy@edupec.com</a></p>
   </div>
 </div>
 
@@ -233,46 +320,104 @@
       Back
     </button>
     <h1>Terms &amp; Conditions</h1>
-    <p class="meta">Last updated: May 2025 · EDUPEC Ltd</p>
-    <p>These Terms and Conditions ("Terms") govern your use of the EDUPEC mobile application ("App") provided by EDUPEC Ltd. By downloading or using the App, you agree to be bound by these Terms.</p>
+    <p class="meta">Last updated: May 2026 &middot; EDUPEC Ltd</p>
+
+    <p>These Terms and Conditions ("Terms") govern your access to and use of the EDUPEC mobile application (the "App") provided by EDUPEC Ltd ("EDUPEC", "we", "us"). By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
+
     <h2>1. Eligibility</h2>
-    <p>You must be at least 13 years old to use the App. Users under 18 should review these Terms with a parent or guardian.</p>
+    <p>You must be at least 13 years old to use the App (or 16 in jurisdictions where GDPR applies, unless parental consent is provided). Users under 18 should review these Terms with a parent or guardian. By using the App, you confirm that you meet these age requirements.</p>
+
     <h2>2. Account Registration</h2>
-    <p>You agree to provide accurate information when creating an account and are responsible for maintaining the confidentiality of your login credentials.</p>
+    <p>You may create an account using your email address and a password, or by signing in via Google or Apple. You agree to provide accurate and current information. You are responsible for maintaining the confidentiality of your credentials and for all activity that occurs under your account. Please notify us immediately if you suspect unauthorised access to your account.</p>
+    <p>Email registration requires email verification before your account is fully activated. You must confirm your email address by clicking the link sent to you before you can access the App's features.</p>
+
     <h2>3. Licence Grant</h2>
-    <p>EDUPEC grants you a limited, non-exclusive, non-transferable, revocable licence to use the App for personal, non-commercial educational purposes. You may not sublicense, copy, modify, or distribute the App or its content.</p>
-    <h2>4. Subscriptions and Payments</h2>
-    <p>Premium features require a paid subscription. Subscriptions auto-renew unless cancelled at least 24 hours before renewal through your App Store account settings. Refunds are subject to Apple App Store or Google Play policies.</p>
-    <h2>5. Acceptable Use</h2>
+    <p>EDUPEC grants you a limited, personal, non-exclusive, non-transferable, revocable licence to install and use the App on your own mobile device solely for personal, non-commercial educational purposes, in accordance with these Terms. You may not sublicense, copy, modify, distribute, sell, or create derivative works of the App or any of its content.</p>
+
+    <h2>4. App Features</h2>
+    <p>The App provides the following learning features (availability may vary by subscription tier):</p>
     <ul>
-      <li>Do not reverse engineer or decompile the App</li>
-      <li>Do not use the App for any unlawful or fraudulent purpose</li>
-      <li>Do not attempt unauthorised access to our systems</li>
-      <li>Do not submit illegal or harmful content through AI writing features</li>
-      <li>Do not use automated scripts or bots to interact with the App</li>
+      <li><strong>Vocabulary (Discovery &amp; Flashcards)</strong> — swipe-based flashcard system with spaced repetition. Words are shown with definitions, example sentences, synonyms, CEFR difficulty level, and native language translation. Each card includes an audio pronunciation button. Free users have a session limit of 20 words per session; Premium users have unlimited sessions.</li>
+      <li><strong>Grammar</strong> — structured grammar lessons organised by topic covering verb forms, conditionals, modals, articles, relative clauses, and advanced style.</li>
+      <li><strong>Reading</strong> — access to classical and non-fiction texts. Reading books consume Free Books balance credits or require a premium subscription.</li>
+      <li><strong>Writing Practice</strong> — AI-powered writing exercises with automated feedback on grammar, style, and vocabulary.</li>
+      <li><strong>Listening</strong> — audio-based learning exercises using pre-recorded audio content.</li>
+      <li><strong>Comprehension</strong> — reading comprehension exercises.</li>
+      <li><strong>Games</strong> — interactive vocabulary and language games.</li>
+      <li><strong>Word Collection</strong> — save words for focused review and personal study lists.</li>
+      <li><strong>Offline Mode</strong> — content cached locally on your device for use without an internet connection. Offline progress is automatically synced when you reconnect.</li>
     </ul>
-    <h2>6. Intellectual Property</h2>
-    <p>All content within the App is the property of EDUPEC Ltd or its licensors and is protected by copyright law. Your use of the App does not grant you any ownership rights.</p>
-    <h2>7. Disclaimer of Warranties</h2>
-    <p>The App is provided on an "as is" and "as available" basis without warranties of any kind. EDUPEC does not warrant that the App will be error-free or uninterrupted.</p>
-    <h2>8. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by law, EDUPEC shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the App.</p>
-    <h2>9. Termination</h2>
-    <p>We may suspend or terminate your access at any time for violations of these Terms. You may close your account at any time via the App's account settings.</p>
-    <h2>10. Governing Law</h2>
-    <p>These Terms are governed by the laws of England and Wales. Disputes are subject to the exclusive jurisdiction of the courts of England and Wales.</p>
-    <h2>11. Changes to These Terms</h2>
-    <p>We may revise these Terms at any time with reasonable notice via in-app notification or email. Continued use constitutes acceptance.</p>
-    <h2>12. Contact Us</h2>
-    <p><strong>EDUPEC Ltd</strong><br>Email: <a href="mailto:legal@edupec.com">legal@edupec.com</a></p>
+
+    <h2>5. Coins, XP, and Virtual Currency</h2>
+    <p>The App uses an in-app virtual currency system ("Coins") and experience points ("XP"). Coins and XP are earned through learning activity within the App. They have no real-world monetary value and cannot be exchanged for cash, transferred to other users, or redeemed outside the App. EDUPEC reserves the right to modify the coin economy, earning rates, and redeemable items at any time without notice.</p>
+    <p><strong>Double Rewards</strong> is a temporary feature that doubles Coin earnings for a limited period. It is granted automatically under certain conditions and expires at the time shown in the App.</p>
+    <p><strong>Free Books Balance</strong> consists of credits that may be used to unlock individual reading books. Credits are earned through learning activity or granted as part of your subscription. Credits have no monetary value and are non-refundable.</p>
+
+    <h2>6. Streak System and Streak Freezes</h2>
+    <p>The App tracks your daily study streak — consecutive days on which you complete at least one learning session. If you miss one or more days, your streak will be reset to zero, unless you use Streak Freezes.</p>
+    <p><strong>Streak Freezes</strong> are consumable items that protect your streak against missed days. Each Streak Freeze protects against one missed day. Free users may earn Streak Freezes through the App. Premium subscribers receive a monthly allocation of Streak Freezes automatically upon login.</p>
+    <p>When you sign in after missing days, the App will prompt you to use your available Streak Freezes. One Streak Freeze is consumed per missed day. If you do not have enough Streak Freezes to cover all missed days, or if you choose not to use them, your streak will be reset. Streak resets are final; EDUPEC is not responsible for streak losses resulting from missed sessions, device failure, connectivity issues, or any other cause.</p>
+
+    <h2>7. Subscriptions and Payments</h2>
+    <p><strong>7.1 Premium Subscription.</strong> Certain features are available exclusively to Premium subscribers, including unlimited vocabulary sessions, additional monthly Streak Freezes, and enhanced offline content access. Premium subscriptions are offered on a monthly or annual basis.</p>
+    <p><strong>7.2 Billing.</strong> Subscriptions are purchased and billed through the Apple App Store (iOS) or Google Play Store (Android). Payment is charged to your App Store or Google Play account at confirmation of purchase. All billing, invoicing, and payment processing is handled by Apple or Google — EDUPEC does not process or store your payment information.</p>
+    <p><strong>7.3 Auto-Renewal.</strong> Subscriptions automatically renew at the end of each billing period unless you cancel at least 24 hours before the renewal date. Renewal charges are at the same price as the original subscription unless you are notified otherwise.</p>
+    <p><strong>7.4 Cancellation.</strong> You may cancel your subscription at any time through your App Store or Google Play account settings. Cancellation takes effect at the end of the current billing period; you retain access to Premium features until that date.</p>
+    <p><strong>7.5 Refunds.</strong> All refund requests are subject to the refund policies of Apple App Store or Google Play. EDUPEC does not issue refunds directly. To request a refund, please contact Apple or Google through their respective support channels.</p>
+    <p><strong>7.6 Restore Purchases.</strong> If you reinstall the App or switch devices, you can restore your previous purchases via the Restore Purchases option in the App's account settings.</p>
+    <p><strong>7.7 Price Changes.</strong> EDUPEC may change subscription prices at any time. You will be notified of price changes before your next renewal date.</p>
+
+    <h2>8. AI Writing Feature</h2>
+    <p>The writing practice feature uses third-party AI services to provide automated feedback on your writing submissions. By using this feature, you acknowledge that the text you submit will be transmitted to our AI provider for processing. You must not submit any content that is unlawful, defamatory, harassing, hateful, obscene, or violates the rights of any third party. AI-generated feedback is for educational purposes only and does not constitute professional language certification.</p>
+
+    <h2>9. Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the App</li>
+      <li>Use the App for any unlawful, fraudulent, or abusive purpose</li>
+      <li>Attempt to gain unauthorised access to EDUPEC's systems, servers, or databases</li>
+      <li>Use automated scripts, bots, scrapers, or other automated means to interact with the App</li>
+      <li>Circumvent or disable any security, access control, or feature restriction in the App</li>
+      <li>Interfere with other users' access to or enjoyment of the App</li>
+      <li>Submit false, misleading, or fraudulent information during onboarding or in writing submissions</li>
+    </ul>
+
+    <h2>10. Intellectual Property</h2>
+    <p>All content within the App — including vocabulary content, grammar lessons, example sentences, audio recordings, illustrations, and software — is the property of EDUPEC Ltd or its licensors and is protected by copyright, trademark, and other intellectual property laws. Your use of the App does not grant you any ownership rights in any App content. Classical public domain literary texts included in the Reading section remain in the public domain; EDUPEC's selection, curation, and presentation of such texts is proprietary.</p>
+
+    <h2>11. Disclaimer of Warranties</h2>
+    <p>The App is provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. EDUPEC does not warrant that the App will be error-free, uninterrupted, or free from viruses or other harmful components. We do not guarantee specific learning outcomes or English proficiency improvements.</p>
+
+    <h2>12. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, EDUPEC Ltd and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to your use of the App, including but not limited to loss of data, loss of streaks or virtual items, or loss of progress. Our total liability to you for any claim arising out of or relating to these Terms or the App shall not exceed the amount you paid to EDUPEC in the twelve months preceding the claim, or £10 (whichever is greater).</p>
+
+    <h2>13. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless EDUPEC Ltd and its officers, directors, employees, and agents from any claims, damages, losses, or expenses (including reasonable legal fees) arising from your violation of these Terms or your use of the App.</p>
+
+    <h2>14. Account Termination</h2>
+    <p>You may delete your account at any time through the App's account settings. Upon deletion, your personal data will be removed in accordance with our Privacy Policy. EDUPEC may suspend or terminate your account at any time if you violate these Terms, engage in fraudulent activity, or if we discontinue the App. Termination does not entitle you to a refund of any subscription fees paid.</p>
+
+    <h2>15. Changes to the App and Terms</h2>
+    <p>EDUPEC reserves the right to modify, update, or discontinue any feature of the App at any time. We may revise these Terms at any time by posting the updated version in the App and on our website. We will provide reasonable notice of material changes via in-app notification or email. Continued use of the App after the effective date of changes constitutes your acceptance of the revised Terms.</p>
+
+    <h2>16. Governing Law</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of England and Wales. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales, unless mandatory consumer protection laws in your jurisdiction provide otherwise.</p>
+
+    <h2>17. Severability</h2>
+    <p>If any provision of these Terms is found to be invalid or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect.</p>
+
+    <h2>18. Contact Us</h2>
+    <p><strong>EDUPEC Ltd</strong><br>
+    Registered in England and Wales<br>
+    Email: <a href="mailto:legal@edupec.com">legal@edupec.com</a></p>
   </div>
 </div>
 
 <footer>
-  <span class="footer-copy">© 2025 EDUPEC Ltd. Registered in England and Wales.</span>
+  <span class="footer-copy">&copy; 2026 EDUPEC Ltd. Registered in England and Wales.</span>
   <nav class="footer-links">
-    <a href="#privacy">Privacy Policy</a>
-    <a href="#terms">Terms &amp; Conditions</a>
+    <a href="#privacy" onclick="showPage('privacy');return false;">Privacy Policy</a>
+    <a href="#terms" onclick="showPage('terms');return false;">Terms &amp; Conditions</a>
     <a href="mailto:hello@edupec.com">Contact</a>
   </nav>
 </footer>
