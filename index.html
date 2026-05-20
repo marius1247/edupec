@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EDUPEC — Coming Soon</title>
-  <meta name="description" content="A new English learning app by EDUPEC is launching soon on iOS and Android.">
+  <title>EDUPEC — Educational Software</title>
+  <meta name="description" content="EDUPEC is an educational software startup building apps that help people learn languages and grow their skills.">
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@700,800&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     :root,[data-theme="light"]{
-      --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-offset:#f3f0ec;
+      --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;--color-surface-offset:#f3f0ec;
       --color-divider:#dcd9d5;--color-border:#d4d1ca;
       --color-text:#28251d;--color-text-muted:#7a7974;--color-text-faint:#bab9b4;
       --color-primary:#01696f;--color-primary-hover:#0c4e54;--color-primary-highlight:#cedcd8;
+      --shadow-sm:0 1px 2px oklch(0.2 0.01 80 / 0.06);
       --shadow-md:0 4px 12px oklch(0.2 0.01 80 / 0.08);
       --shadow-lg:0 12px 32px oklch(0.2 0.01 80 / 0.12);
       --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-full:9999px;
-      --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;
-      --space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;
+      --space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;
       --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
       --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
       --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
@@ -30,83 +31,121 @@
       --font-display:'Cabinet Grotesk','Instrument Serif',Georgia,serif;
       --font-body:'Satoshi','Inter',sans-serif;
       --transition:180ms cubic-bezier(0.16,1,0.3,1);
+      --content-narrow:640px;--content-default:960px;--content-wide:1200px;
     }
     [data-theme="dark"]{
-      --color-bg:#171614;--color-surface:#1c1b19;--color-surface-offset:#1d1c1a;
+      --color-bg:#171614;--color-surface:#1c1b19;--color-surface-2:#201f1d;--color-surface-offset:#1d1c1a;
       --color-divider:#262523;--color-border:#393836;
       --color-text:#cdccca;--color-text-muted:#797876;--color-text-faint:#5a5957;
       --color-primary:#4f98a3;--color-primary-hover:#227f8b;--color-primary-highlight:#313b3b;
-      --shadow-md:0 4px 12px oklch(0 0 0 / 0.3);--shadow-lg:0 12px 32px oklch(0 0 0 / 0.4);
+      --shadow-sm:0 1px 2px oklch(0 0 0 / 0.2);--shadow-md:0 4px 12px oklch(0 0 0 / 0.3);--shadow-lg:0 12px 32px oklch(0 0 0 / 0.4);
     }
     @media(prefers-color-scheme:dark){:root:not([data-theme]){
-      --color-bg:#171614;--color-surface:#1c1b19;--color-surface-offset:#1d1c1a;
+      --color-bg:#171614;--color-surface:#1c1b19;--color-surface-2:#201f1d;--color-surface-offset:#1d1c1a;
       --color-divider:#262523;--color-border:#393836;
       --color-text:#cdccca;--color-text-muted:#797876;--color-text-faint:#5a5957;
       --color-primary:#4f98a3;--color-primary-hover:#227f8b;--color-primary-highlight:#313b3b;
     }}
+
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+    html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;scroll-padding-top:72px}
     body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);display:flex;flex-direction:column}
-    img,svg{display:block;max-width:100%}
+    img,svg{display:block;max-width:100%;height:auto}
     h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.1}
     p,li{text-wrap:pretty}
-    button,a{transition:color var(--transition),background var(--transition),border-color var(--transition),box-shadow var(--transition)}
+    a,button{transition:color var(--transition),background var(--transition),border-color var(--transition),box-shadow var(--transition)}
     button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
     @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
     .page{display:block}
     .legal-page{display:none;padding-block:clamp(3rem,7vw,6rem)}
     .legal-page.active{display:block}
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:var(--space-5) var(--space-8)}
+
+    /* HEADER */
+    .topbar{
+      position:sticky;top:0;z-index:100;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:var(--space-4) var(--space-8);
+      background:oklch(from var(--color-bg) l c h / 0.9);
+      backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      border-bottom:1px solid oklch(from var(--color-text) l c h / 0.06);
+    }
     .logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text)}
     .logo-text{font-family:var(--font-display);font-size:var(--text-lg);font-weight:800;letter-spacing:-.02em}
     .logo-text span{color:var(--color-primary)}
+    .header-right{display:flex;align-items:center;gap:var(--space-3)}
     .theme-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-full);color:var(--color-text-muted);border:1px solid oklch(from var(--color-text) l c h / 0.12)}
     .theme-btn:hover{color:var(--color-text);background:var(--color-surface-offset)}
-    @media(max-width:500px){.topbar{padding:var(--space-4)}}
-    .hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:var(--space-12) var(--space-8);position:relative;overflow:hidden}
-    .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,oklch(from var(--color-primary) l c h / 0.08),transparent);pointer-events:none}
+    @media(max-width:500px){.topbar{padding:var(--space-3) var(--space-4)}}
+
+    .home-content{flex:1}
+
+    /* HERO */
+    .hero{
+      padding:clamp(var(--space-16),8vw,var(--space-20)) var(--space-6);
+      display:flex;flex-direction:column;align-items:center;text-align:center;
+      position:relative;overflow:hidden;
+    }
+    .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 40%,oklch(from var(--color-primary) l c h / 0.07),transparent);pointer-events:none}
     .eyebrow{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--color-primary);margin-bottom:var(--space-5)}
-    .hero h1{font-size:var(--text-3xl);font-weight:800;letter-spacing:-.03em;margin-bottom:var(--space-5);max-width:14ch}
+    .hero h1{font-size:var(--text-3xl);font-weight:800;letter-spacing:-.03em;margin-bottom:var(--space-5);max-width:16ch}
     .hero h1 em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:var(--color-primary)}
-    .hero-sub{font-size:var(--text-base);color:var(--color-text-muted);max-width:44ch;line-height:1.75;margin-bottom:var(--space-10)}
-    .notify-form{display:flex;gap:var(--space-3);flex-wrap:wrap;justify-content:center;margin-bottom:var(--space-12)}
-    .notify-input{padding:var(--space-3) var(--space-5);border-radius:var(--radius-full);border:1.5px solid var(--color-border);background:var(--color-surface);color:var(--color-text);font-family:var(--font-body);font-size:var(--text-sm);width:260px;outline:none}
-    .notify-input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px oklch(from var(--color-primary) l c h / 0.15)}
-    .notify-input::placeholder{color:var(--color-text-faint)}
-    .btn-primary{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);border-radius:var(--radius-full);background:var(--color-primary);color:#fff;font-size:var(--text-sm);font-weight:600;text-decoration:none;border:1.5px solid var(--color-primary);cursor:pointer;font-family:var(--font-body)}
-    .btn-primary:hover{background:var(--color-primary-hover);border-color:var(--color-primary-hover)}
-    .notify-success{display:none;font-size:var(--text-sm);color:var(--color-primary);font-weight:600;padding:var(--space-3) var(--space-5);background:var(--color-primary-highlight);border-radius:var(--radius-full)}
-    [data-theme="dark"] .notify-success{background:oklch(from var(--color-primary) l c h / 0.15)}
-    .phone-wrap{position:relative;margin-bottom:var(--space-12)}
-    .phone{width:200px;height:400px;background:var(--color-surface);border-radius:2.2rem;box-shadow:var(--shadow-lg),0 0 0 6px oklch(from var(--color-text) l c h / 0.05);border:1.5px solid oklch(from var(--color-text) l c h / 0.08);overflow:hidden;display:flex;flex-direction:column;margin-inline:auto}
-    .phone-notch{width:55px;height:5px;background:oklch(from var(--color-text) l c h / 0.12);border-radius:var(--radius-full);margin:10px auto 0}
-    .phone-body{flex:1;padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3)}
-    .phone-header{display:flex;align-items:center;justify-content:space-between}
-    .phone-appname{font-family:var(--font-display);font-size:.8rem;font-weight:800;color:var(--color-primary)}
-    .phone-streak{font-size:.6rem;background:var(--color-primary-highlight);color:var(--color-primary);padding:2px 7px;border-radius:var(--radius-full);font-weight:700}
-    [data-theme="dark"] .phone-streak{background:oklch(from var(--color-primary) l c h / 0.15)}
-    .phone-card{background:var(--color-primary);color:#fff;border-radius:var(--radius-lg);padding:var(--space-3);font-size:.65rem;line-height:1.5}
-    .phone-word{font-family:var(--font-display);font-size:1rem;font-weight:800;margin-bottom:3px}
-    .phone-trans{opacity:.8;font-size:.6rem}
-    .phone-sentence{margin-top:6px;font-size:.6rem;opacity:.85;line-height:1.5}
-    .phone-options{display:flex;flex-direction:column;gap:5px}
-    .phone-opt{background:var(--color-surface-offset);border-radius:var(--radius-md);padding:7px;font-size:.6rem;color:var(--color-text-muted)}
-    .phone-xp{display:flex;align-items:center;gap:var(--space-2);margin-top:auto}
-    .xp-label{font-size:.55rem;color:var(--color-primary);font-weight:700}
-    .xp-bar{flex:1;height:5px;background:oklch(from var(--color-text) l c h / 0.08);border-radius:var(--radius-full);overflow:hidden}
-    .xp-fill{height:100%;width:0;background:linear-gradient(90deg,var(--color-primary),#4f98a3);border-radius:var(--radius-full);animation:xpgrow 2s ease-out forwards}
-    @keyframes xpgrow{from{width:0}to{width:68%}}
-    .xp-num{font-size:.55rem;color:var(--color-text-muted);white-space:nowrap}
-    .chips{display:flex;flex-wrap:wrap;gap:var(--space-3);justify-content:center;margin-bottom:var(--space-10)}
-    .chip{display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h / 0.08);border-radius:var(--radius-full);font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500}
-    .chip-dot{width:5px;height:5px;border-radius:var(--radius-full);background:var(--color-primary);flex-shrink:0}
-    footer{padding:var(--space-6) var(--space-8);border-top:1px solid var(--color-divider);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4)}
+    .hero-sub{font-size:var(--text-base);color:var(--color-text-muted);max-width:52ch;line-height:1.75;margin-bottom:var(--space-4)}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:var(--space-2);justify-content:center;margin-bottom:var(--space-10)}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:var(--space-1) var(--space-3);background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h / 0.08);border-radius:var(--radius-full);font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500}
+    .tag-dot{width:5px;height:5px;border-radius:50%;background:var(--color-primary);flex-shrink:0}
+
+    /* APPS SECTION */
+    .apps-section{padding:clamp(var(--space-12),6vw,var(--space-16)) var(--space-6);background:var(--color-surface)}
+    .section-label{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--color-text-faint);margin-bottom:var(--space-8);text-align:center}
+    .apps-grid{max-width:var(--content-default);margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
+    @media(max-width:680px){.apps-grid{grid-template-columns:1fr}}
+
+    /* APP CARD */
+    .app-card{
+      background:var(--color-bg);border-radius:var(--radius-xl);
+      border:1px solid oklch(from var(--color-text) l c h / 0.08);
+      padding:var(--space-8);
+      display:flex;flex-direction:column;gap:var(--space-5);
+      box-shadow:var(--shadow-sm);
+      transition:box-shadow var(--transition),transform var(--transition);
+    }
+    .app-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .app-card.coming-soon{opacity:.75}
+    .app-card-header{display:flex;align-items:center;gap:var(--space-4)}
+    .app-logo{width:64px;height:64px;border-radius:var(--radius-lg);overflow:hidden;flex-shrink:0;background:var(--color-surface-offset)}
+    .app-logo img{width:100%;height:100%;object-fit:cover}
+    .app-logo-placeholder{width:64px;height:64px;border-radius:var(--radius-lg);background:var(--color-surface-offset);border:1px solid var(--color-border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .app-name{font-family:var(--font-display);font-size:var(--text-lg);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+    .app-name span{color:var(--color-primary)}
+    .app-badge{display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:var(--text-xs);font-weight:600;padding:2px 8px;border-radius:var(--radius-full);width:fit-content}
+    .badge-live{background:oklch(from var(--color-primary) l c h / 0.1);color:var(--color-primary)}
+    .badge-soon{background:oklch(from var(--color-text) l c h / 0.07);color:var(--color-text-muted)}
+    .app-desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.75;flex:1}
+    .app-features{display:flex;flex-direction:column;gap:6px}
+    .app-feature{display:flex;align-items:center;gap:8px;font-size:var(--text-xs);color:var(--color-text-muted)}
+    .app-feature svg{color:var(--color-primary);flex-shrink:0}
+    .coming-dots{display:flex;gap:var(--space-2);align-items:center;margin-top:var(--space-2)}
+    .coming-dot{width:8px;height:8px;border-radius:50%;background:var(--color-primary);opacity:.35}
+    .coming-dot:nth-child(2){opacity:.6;animation:pulse 1.4s ease-in-out .2s infinite}
+    .coming-dot:nth-child(3){opacity:.85;animation:pulse 1.4s ease-in-out .4s infinite}
+    @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.9}}
+
+    /* FOOTER */
+    footer{
+      padding:var(--space-6) var(--space-8);
+      border-top:1px solid var(--color-divider);
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);
+      margin-top:auto;
+    }
     .footer-copy{font-size:var(--text-xs);color:var(--color-text-faint)}
     .footer-links{display:flex;gap:var(--space-6)}
     .footer-links a{font-size:var(--text-xs);color:var(--color-text-muted);text-decoration:none}
     .footer-links a:hover{color:var(--color-text)}
     @media(max-width:500px){footer{flex-direction:column;align-items:center;text-align:center}}
+
+    /* LEGAL PAGES */
     .legal-content{max-width:680px;margin-inline:auto;padding-inline:var(--space-6)}
     .legal-content h1{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:800;letter-spacing:-.02em;margin-bottom:var(--space-2)}
     .legal-content .meta{font-size:var(--text-xs);color:var(--color-text-faint);margin-bottom:var(--space-10);padding-bottom:var(--space-6);border-bottom:1px solid var(--color-divider)}
@@ -117,8 +156,6 @@
     .legal-content ul li{font-size:var(--text-base);color:var(--color-text-muted);line-height:1.8;margin-bottom:var(--space-2)}
     .legal-content strong{color:var(--color-text);font-weight:600}
     .legal-content a{color:var(--color-primary);text-decoration:underline}
-    .back-btn{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);color:var(--color-text-muted);text-decoration:none;margin-bottom:var(--space-8);cursor:pointer;background:none;border:none;font-family:var(--font-body);padding:0}
-    .back-btn:hover{color:var(--color-text)}
     .toc{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5) var(--space-6);margin-bottom:var(--space-10)}
     .toc-title{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-faint);margin-bottom:var(--space-3)}
     .toc ol{padding-left:var(--space-5);margin:0}
@@ -126,82 +163,112 @@
     .toc ol li a{color:var(--color-text-muted);text-decoration:none}
     .toc ol li a:hover{color:var(--color-primary)}
     .section-divider{height:1px;background:var(--color-divider);margin:var(--space-10) 0}
-    .risk-note{background:oklch(from var(--color-primary) l c h / 0.06);border:1px solid oklch(from var(--color-primary) l c h / 0.18);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);margin-bottom:var(--space-4);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7}
   </style>
 </head>
 <body>
 
+<!-- HEADER — always visible, logo clickable to home -->
 <header class="topbar">
-  <a href="#" class="logo" onclick="showPage('home');return false;">
-    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-label="EDUPEC logo">
+  <a href="#" class="logo" onclick="showPage('home');return false;" aria-label="EDUPEC — go to homepage">
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
       <rect width="32" height="32" rx="8" fill="var(--color-primary)"/>
       <path d="M8 10h6a6 6 0 0 1 0 12H8V10z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/>
       <path d="M19 14l5 2-5 2" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <span class="logo-text">EDU<span>PEC</span></span>
   </a>
-  <button class="theme-btn" data-theme-toggle aria-label="Toggle theme">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
+  <div class="header-right">
+    <button class="theme-btn" data-theme-toggle aria-label="Toggle theme">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
 </header>
 
-<!-- HOME -->
-<div class="page" id="page-home">
+<!-- HOME PAGE -->
+<div class="page home-content" id="page-home">
+
   <section class="hero">
     <div class="hero-glow"></div>
-    <div class="phone-wrap">
-      <div class="phone">
-        <div class="phone-notch"></div>
-        <div class="phone-body">
-          <div class="phone-header">
-            <span class="phone-appname">EDUPEC</span>
-            <span class="phone-streak">&#x1F525; 7 days</span>
+    <p class="eyebrow">Educational Software Startup</p>
+    <h1>We build apps that help people <em>learn</em></h1>
+    <p class="hero-sub">EDUPEC is an independent software company creating smart, beautifully designed learning tools — starting with languages and expanding from there.</p>
+    <div class="hero-tags">
+      <span class="tag"><span class="tag-dot"></span>Mobile-first</span>
+      <span class="tag"><span class="tag-dot"></span>AI-powered feedback</span>
+      <span class="tag"><span class="tag-dot"></span>Spaced repetition</span>
+      <span class="tag"><span class="tag-dot"></span>iOS &amp; Android</span>
+      <span class="tag"><span class="tag-dot"></span>Registered in England &amp; Wales</span>
+    </div>
+  </section>
+
+  <section class="apps-section">
+    <div class="section-label">Our Apps</div>
+    <div class="apps-grid">
+
+      <!-- FinallyFluent -->
+      <div class="app-card">
+        <div class="app-card-header">
+          <div class="app-logo">
+            <img src="./assets/finallyfluent-logo.jpg" alt="FinallyFluent app icon" width="64" height="64" loading="lazy" onerror="this.parentElement.outerHTML='<div class=&quot;app-logo-placeholder&quot;><svg width=&quot;28&quot; height=&quot;28&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;var(--color-primary)&quot; stroke-width=&quot;1.5&quot;><path d=&quot;M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5&quot;/></svg></div>'">
           </div>
-          <div class="phone-card">
-            <div class="phone-word">break down</div>
-            <div class="phone-trans">a descompune · разложить</div>
-            <div class="phone-sentence">"She managed to <strong>break down</strong> the problem into simple steps."</div>
+          <div>
+            <div class="app-name">Finally<span>Fluent</span></div>
+            <div class="app-badge badge-live">
+              <svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="var(--color-primary)"/></svg>
+              Coming Soon on iOS &amp; Android
+            </div>
           </div>
-          <div class="phone-options">
-            <div class="phone-opt">to analyze / to separate</div>
-            <div class="phone-opt">to build / to combine</div>
+        </div>
+        <p class="app-desc">An English learning app for Romanian, Ukrainian, and Polish speakers — built on spaced repetition, 3,000+ phrasal verbs, 2,200+ grammar lessons, and AI-powered writing feedback across A1–C2 CEFR levels.</p>
+        <div class="app-features">
+          <div class="app-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Spaced repetition vocabulary training
           </div>
-          <div class="phone-xp">
-            <span class="xp-label">Coins</span>
-            <div class="xp-bar"><div class="xp-fill"></div></div>
-            <span class="xp-num">340 / 500</span>
+          <div class="app-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            AI writing feedback with CEFR scoring
+          </div>
+          <div class="app-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Reading library, listening practice &amp; games
+          </div>
+          <div class="app-feature">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Offline mode with smart sync
           </div>
         </div>
       </div>
+
+      <!-- More Apps Coming Soon -->
+      <div class="app-card coming-soon">
+        <div class="app-card-header">
+          <div class="app-logo-placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-faint)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <div class="app-name" style="color:var(--color-text-muted)">More <span style="color:var(--color-text-faint)">apps</span></div>
+            <div class="app-badge badge-soon">In development</div>
+          </div>
+        </div>
+        <p class="app-desc">We are working on new educational apps beyond language learning. New tools are in development — more details coming soon.</p>
+        <div class="coming-dots">
+          <div class="coming-dot"></div>
+          <div class="coming-dot"></div>
+          <div class="coming-dot"></div>
+        </div>
+      </div>
+
     </div>
-    <p class="eyebrow">Coming Soon</p>
-    <h1>English fluency,<br><em>finally</em> within reach</h1>
-    <p class="hero-sub">EDUPEC is building an English learning app for Romanian and Eastern European learners — built on spaced repetition, AI feedback, and gamification. Launching soon on iOS and Android.</p>
-    <div class="chips">
-      <span class="chip"><span class="chip-dot"></span>3,000+ Phrasal Verbs</span>
-      <span class="chip"><span class="chip-dot"></span>2,200+ Grammar Lessons</span>
-      <span class="chip"><span class="chip-dot"></span>A1–C2 CEFR Levels</span>
-      <span class="chip"><span class="chip-dot"></span>AI Writing Feedback</span>
-      <span class="chip"><span class="chip-dot"></span>iOS &amp; Android</span>
-    </div>
-    <form class="notify-form" id="notify-form" onsubmit="handleNotify(event)">
-      <input class="notify-input" type="email" placeholder="your@email.com" required aria-label="Email address">
-      <button type="submit" class="btn-primary">Notify me at launch</button>
-    </form>
-    <div class="notify-success" id="notify-success">&#x2713; You're on the list — we'll let you know when we launch!</div>
   </section>
+
 </div>
 
 <!-- PRIVACY POLICY -->
 <div class="legal-page" id="page-privacy">
   <div class="legal-content">
-    <button class="back-btn" onclick="showPage('home')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Back
-    </button>
     <h1>Privacy Policy</h1>
     <p class="meta">Last updated: 18 May 2026 &middot; EDUPEC Ltd &middot; Registered in England and Wales</p>
-
     <div class="toc">
       <p class="toc-title">Contents</p>
       <ol>
@@ -219,186 +286,92 @@
         <li><a href="#pp-12">Contact Us</a></li>
       </ol>
     </div>
-
     <p>EDUPEC Ltd ("EDUPEC", "we", "us", or "our") operates the EDUPEC mobile application (the "App"). This Privacy Policy explains what personal data we collect, why we collect it, how we use and protect it, and your rights regarding that data. By using the App, you agree to the practices described in this policy.</p>
-
     <h2 id="pp-1">1. Data Controller</h2>
     <p>EDUPEC Ltd is the data controller for personal data processed through the App. We are registered in England and Wales. For any privacy-related questions or requests, contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a>.</p>
-
     <h2 id="pp-2">2. Information We Collect</h2>
-
     <h3>2.1 Account &amp; Authentication Data</h3>
-    <p>When you create an account, we collect:</p>
-    <ul>
-      <li><strong>Email address</strong> — provided directly during email/password registration, or retrieved from your Google or Apple account when you use OAuth sign-in.</li>
-      <li><strong>Password</strong> — never stored in plain text. Passwords are handled entirely by Supabase Auth using industry-standard cryptographic hashing. We cannot read your password.</li>
-      <li><strong>OAuth tokens</strong> — when you sign in with Google or Apple, we receive a short-lived authentication token from that provider to verify your identity. We do not receive your Google or Apple password.</li>
-      <li><strong>Device identifier (Device ID)</strong> — a randomly generated identifier stored on your device, used as an anonymous session identifier before you create or sign into an account. This allows the App to track learning progress locally without requiring registration.</li>
-    </ul>
-
+    <p>When you create an account, we collect: email address, password (never stored in plain text — hashed by Supabase Auth), OAuth tokens (when signing in via Google or Apple), and a randomly generated device identifier used as an anonymous session identifier before account creation.</p>
     <h3>2.2 Onboarding &amp; Profile Data</h3>
-    <p>During onboarding, you provide the following information, which is stored in your user profile on our servers:</p>
-    <ul>
-      <li>Display name</li>
-      <li>Age category</li>
-      <li>Current English level (A1–C2 CEFR)</li>
-      <li>Learning goal</li>
-      <li>Weekly study goal (number of sessions per week)</li>
-      <li>Native language / mother tongue (used to display vocabulary translations in your language)</li>
-    </ul>
-
+    <p>During onboarding, you provide: display name, age category, current English level (A1–C2 CEFR), learning goal, weekly study goal, and native language.</p>
     <h3>2.3 Learning Progress Data</h3>
-    <p>As you use the App, the following data is recorded and stored on our servers to personalise your experience and maintain continuity across devices:</p>
-    <ul>
-      <li>Vocabulary knowledge scores per word and spaced repetition review schedules (<code>knowledgeScore</code>, <code>nextReviewAt</code>)</li>
-      <li>Words saved to your personal collection and words you have chosen to hide ("disliked")</li>
-      <li>Word review counts and session history</li>
-      <li>Grammar lessons completed, lessons marked for review ("Add to Review" bookmarks), and progress per lesson</li>
-      <li>Daily study streak, longest streak, and streak history</li>
-      <li>Streak Freeze balance (consumable items that protect your streak on missed days)</li>
-      <li>Coin balance (in-app virtual currency)</li>
-      <li>Free Books balance (credits to unlock reading content)</li>
-      <li>Double Rewards status (temporary 2× coin multiplier)</li>
-      <li>Weekly study goal progress (sessions and individual words studied per week)</li>
-    </ul>
-
+    <p>As you use the App, the following is recorded: vocabulary knowledge scores and spaced repetition schedules, saved/hidden words, grammar lesson completions and bookmarks, daily study streak, streak freeze balance, coin balance, free books balance, double rewards status, and weekly goal progress.</p>
     <h3>2.4 Writing Session Data</h3>
-    <p>When you use the Writing Practice feature, you may submit a text response to an AI-powered prompt. The submitted text is sent to our AI provider for automated feedback generation. If you choose to save a writing session, the following data is stored locally on your device (not on our servers unless explicitly stated):</p>
-    <ul>
-      <li>Writing topic title</li>
-      <li>Your written response (full text)</li>
-      <li>Word count</li>
-      <li>AI feedback results (overall grade, CEFR level estimate, grammar errors, vocabulary, coherence, grammar, and task achievement scores, suggested next level, and detailed written feedback)</li>
-      <li>Session timestamp</li>
-    </ul>
-    <p>Writing history is saved locally on your device using encrypted local storage. It is not uploaded to our servers. Your submitted text is transmitted to our AI subprocessor solely for the purpose of generating feedback and is not used to train AI models.</p>
-
+    <p>When you use the Writing Practice feature, submitted text is sent to our AI provider for automated feedback. If you save a session, topic title, your text, word count, AI feedback, and timestamp are stored locally on your device — not on our servers. Your submitted text is not used to train AI models.</p>
     <h3>2.5 Reading &amp; Offline Data (Stored Locally)</h3>
-    <p>The following data is stored locally on your device and is not transmitted to our servers:</p>
-    <ul>
-      <li><strong>Reading position</strong> — your current page number per book, stored in device AsyncStorage as <code>reader_page_{bookId}</code>.</li>
-      <li><strong>Saved books</strong> — books you have bookmarked in the Library.</li>
-      <li><strong>Grammar lesson cache</strong> — recently accessed grammar lessons and exercises are cached for offline use. The content cached depends on your subscription tier (free or premium).</li>
-      <li><strong>Vocabulary content cache</strong> — vocabulary data cached for offline sessions, cleared after 24 hours.</li>
-      <li><strong>Session draft</strong> — if a vocabulary training session is interrupted, an in-progress session draft is saved locally and automatically restored when you return.</li>
-      <li><strong>Offline sync queue</strong> — learning actions performed while offline (e.g., completing a grammar lesson) are stored locally and automatically synced to our servers when you reconnect to the internet.</li>
-    </ul>
-
+    <p>The following data is stored locally on your device only: reading positions per book, saved books, grammar lesson cache, vocabulary content cache, session drafts, and the offline sync queue.</p>
     <h3>2.6 Subscription &amp; Purchase Data</h3>
-    <p>Premium subscription purchases are processed by Apple (App Store) or Google (Google Play) and managed via RevenueCat. We receive confirmation of your active entitlement (i.e., whether you have an active premium subscription) but do not receive your payment card details, billing address, or full transaction records. All payment data is processed and held by Apple, Google, and RevenueCat in accordance with their own privacy policies.</p>
-
+    <p>Premium subscription purchases are processed by Apple (App Store) or Google (Google Play) and managed via RevenueCat. We receive only confirmation of your active entitlement — we do not receive your payment card details or billing address.</p>
     <h3>2.7 Technical &amp; Diagnostic Data</h3>
     <ul>
       <li>App version and operating system version</li>
       <li>Device type and platform (iOS or Android)</li>
-      <li>Crash reports and error logs (collected to diagnose and fix technical issues)</li>
-      <li>Network connectivity status (online/offline)</li>
+      <li>Crash reports and error logs</li>
+      <li>Network connectivity status</li>
     </ul>
-
     <div class="section-divider"></div>
-
     <h2 id="pp-3">3. How We Use Your Information</h2>
     <ul>
-      <li>To create and manage your account and authenticate you securely via email/password, Google, or Apple sign-in</li>
-      <li>To personalise your learning experience, including your spaced repetition schedule, vocabulary difficulty, and CEFR level recommendations</li>
-      <li>To track and synchronise your learning progress, study streak, and Coin balance across sessions and devices</li>
-      <li>To enable offline learning by caching content locally on your device and syncing your progress when you reconnect</li>
-      <li>To manage your premium subscription status and grant associated benefits (unlimited vocabulary sessions, monthly Streak Freeze allocations, enhanced offline content access)</li>
-      <li>To provide AI writing feedback by transmitting your submitted text to our AI subprocessor for automated analysis (see Section 5)</li>
-      <li>To provide text-to-speech audio pronunciations using the ElevenLabs service (see Section 5)</li>
-      <li>To gate access to premium and free-tier reading content based on your subscription status and Free Books balance</li>
+      <li>To create and manage your account and authenticate you securely</li>
+      <li>To personalise your learning experience, including spaced repetition scheduling and CEFR level recommendations</li>
+      <li>To track and synchronise your learning progress, study streak, and Coin balance</li>
+      <li>To enable offline learning and sync your progress when you reconnect</li>
+      <li>To manage your premium subscription status</li>
+      <li>To provide AI writing feedback by transmitting your submitted text to our AI subprocessor</li>
+      <li>To provide text-to-speech audio pronunciations using the ElevenLabs service</li>
       <li>To send important service notifications and account-related communications</li>
       <li>To analyse aggregate, anonymised usage patterns and improve the App</li>
       <li>To comply with applicable legal obligations</li>
     </ul>
-
     <div class="section-divider"></div>
-
     <h2 id="pp-4">4. Legal Basis for Processing (GDPR)</h2>
     <p>Where the UK GDPR or EU GDPR applies, we process your personal data under the following legal bases:</p>
     <ul>
-      <li><strong>Contract performance (Art. 6(1)(b))</strong> — processing necessary to provide the App's core services, including account management, progress tracking, and subscription features.</li>
-      <li><strong>Legitimate interests (Art. 6(1)(f))</strong> — improving the App, preventing fraud, ensuring service security, diagnosing technical issues via crash logs, and analysing aggregate usage patterns. We have assessed that these interests do not override your rights and freedoms.</li>
+      <li><strong>Contract performance (Art. 6(1)(b))</strong> — processing necessary to provide the App's core services.</li>
+      <li><strong>Legitimate interests (Art. 6(1)(f))</strong> — improving the App, preventing fraud, ensuring service security, and analysing aggregate usage patterns.</li>
       <li><strong>Legal obligation (Art. 6(1)(c))</strong> — where retention or disclosure of data is required by applicable law.</li>
-      <li><strong>Consent (Art. 6(1)(a))</strong> — for optional features such as marketing communications or push notifications, where you have explicitly opted in. You may withdraw consent at any time without affecting the lawfulness of prior processing.</li>
+      <li><strong>Consent (Art. 6(1)(a))</strong> — for optional features such as marketing communications or push notifications. You may withdraw consent at any time.</li>
     </ul>
-    <p>Where we rely on legitimate interests for processing involving automated tools (including the spaced repetition algorithm and AI writing feedback), we have conducted an assessment concluding that these purposes are proportionate and do not outweigh your interests or fundamental rights.</p>
-
     <div class="section-divider"></div>
-
     <h2 id="pp-5">5. Third-Party Service Providers</h2>
-    <p>We work with the following third-party providers who process personal data on our behalf as data processors (or as independent data controllers where indicated). In accordance with UK/EU GDPR Article 28, we have entered into or will enter into data processing agreements with each processor listed below.</p>
     <ul>
-      <li><strong>Supabase, Inc.</strong> — our backend database and authentication provider. Your account data, profile, and all server-side learning progress are stored on Supabase infrastructure hosted on AWS. Data may be stored in the EU or US depending on project configuration. Supabase processes data under Standard Contractual Clauses (SCCs) where required. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase's Privacy Policy</a>.</li>
-      <li><strong>RevenueCat, Inc.</strong> — subscription and in-app purchase management. RevenueCat receives your anonymised app user ID and subscription status from Apple and Google. It does not receive your payment card details. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat's Privacy Policy</a>.</li>
-      <li><strong>ElevenLabs, Inc.</strong> — text-to-speech provider used to generate audio pronunciations for vocabulary words. Individual vocabulary words (not personally identifiable) are sent to ElevenLabs for audio synthesis. See <a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">ElevenLabs' Privacy Policy</a>.</li>
-      <li><strong>AI writing feedback subprocessor</strong> — text you submit in the Writing Practice feature is sent to a third-party AI provider for automated feedback generation. This text is processed solely to produce feedback and is not linked to your account identity. We instruct our provider not to use submitted content for AI model training. We will update this policy to name the specific provider once our data processing agreement is in place.</li>
-      <li><strong>Apple Inc.</strong> — App Store distribution, Apple Sign In authentication (iOS), and in-app purchase processing. Acts as an independent data controller for its own services. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>.</li>
-      <li><strong>Google LLC</strong> — Google Play distribution, Google Sign In authentication, and in-app purchase processing (Android). Acts as an independent data controller for its own services. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</li>
+      <li><strong>Supabase, Inc.</strong> — backend database and authentication. <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</li>
+      <li><strong>RevenueCat, Inc.</strong> — subscription management. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</li>
+      <li><strong>ElevenLabs, Inc.</strong> — text-to-speech audio. <a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</li>
+      <li><strong>AI writing feedback subprocessor</strong> — submitted writing text is processed solely to produce feedback and is not linked to your account identity or used for AI training.</li>
+      <li><strong>Apple Inc.</strong> — App Store distribution, Apple Sign In, and in-app purchases. <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</li>
+      <li><strong>Google LLC</strong> — Google Play distribution, Google Sign In, and in-app purchases. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</li>
     </ul>
-    <p>We do not sell your personal data to any third party. We do not use your personal data for advertising or tracking purposes. We will update this section if we engage additional subprocessors that process your personal data.</p>
-
+    <p>We do not sell your personal data to any third party. We do not use your personal data for advertising or tracking purposes.</p>
     <div class="section-divider"></div>
-
     <h2 id="pp-6">6. Data Retention</h2>
-    <p>We retain your personal data for as long as your account is active. If you request account deletion through the App's account settings, we will delete or anonymise your personal data within 30 days, except where retention is required by applicable law (for example, financial or tax records may be retained for up to 7 years in accordance with UK law).</p>
-    <p>Locally cached data on your device is automatically cleared after 24 hours (vocabulary and content cache) or when you uninstall the App. Offline sync queue items are deleted after successful synchronisation. Writing history stored locally is retained on your device until you delete it manually or uninstall the App.</p>
-
+    <p>We retain your personal data for as long as your account is active. If you request account deletion, we will delete or anonymise your data within 30 days, except where retention is required by applicable law (financial/tax records may be retained for up to 7 years under UK law). Locally cached data is cleared after 24 hours or when you uninstall the App.</p>
     <div class="section-divider"></div>
-
     <h2 id="pp-7">7. Children's Privacy</h2>
-    <p>The App is not directed to children under the age of 13 (or under 16 where the UK GDPR or EU GDPR applies without verified parental consent). We do not knowingly collect personal data from children below these ages. If you are a parent or guardian and believe your child has provided personal data to us without your consent, please contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> and we will promptly delete that data.</p>
-
+    <p>The App is not directed to children under the age of 13 (or under 16 where UK/EU GDPR applies without verified parental consent). If you believe your child has provided personal data without your consent, contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a>.</p>
     <div class="section-divider"></div>
-
     <h2 id="pp-8">8. Your Rights</h2>
-    <p>Depending on your jurisdiction, you have the following rights regarding your personal data. To exercise any right, contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a>. We will respond within one calendar month (or sooner as required by applicable law).</p>
-    <ul>
-      <li><strong>Access (Art. 15 UK/EU GDPR)</strong> — request a copy of the personal data we hold about you.</li>
-      <li><strong>Rectification (Art. 16)</strong> — request correction of inaccurate or incomplete data.</li>
-      <li><strong>Erasure / Right to be Forgotten (Art. 17)</strong> — request deletion of your personal data. You can also initiate this directly by deleting your account within the App.</li>
-      <li><strong>Restriction of processing (Art. 18)</strong> — request that we limit how we use your data in certain circumstances.</li>
-      <li><strong>Data portability (Art. 20)</strong> — request your data in a structured, machine-readable format.</li>
-      <li><strong>Objection (Art. 21)</strong> — object to processing based on legitimate interests.</li>
-      <li><strong>Rights in relation to automated decision-making (Art. 22)</strong> — the App uses automated logic (the spaced repetition algorithm) to determine the frequency and order of vocabulary review. This does not produce legal or similarly significant effects on you. You may contact us to request human review of any such determination.</li>
-      <li><strong>Withdraw consent</strong> — where processing is based on your consent, withdraw it at any time without affecting the lawfulness of prior processing.</li>
-      <li><strong>Lodge a complaint</strong> — you have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>, or with the relevant supervisory authority in your country of residence.</li>
-    </ul>
-
+    <p>Depending on your jurisdiction, you have the following rights: access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20), objection (Art. 21), rights regarding automated decision-making (Art. 22), and the right to lodge a complaint with the ICO at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>. Contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> to exercise any right.</p>
     <div class="section-divider"></div>
-
     <h2 id="pp-9">9. Security</h2>
-    <p>We implement industry-standard technical and organisational security measures to protect your data, including encrypted data transmission (HTTPS/TLS), hashed password storage via Supabase Auth, row-level security (RLS) policies on our database, and session token management. No method of internet transmission is 100% secure. In the event of a personal data breach that is likely to result in a risk to your rights and freedoms, we will notify the relevant supervisory authority within 72 hours and, where required, notify affected users without undue delay. We encourage you to use a strong, unique password for your EDUPEC account.</p>
-
+    <p>We implement industry-standard security measures including encrypted data transmission (HTTPS/TLS), hashed password storage via Supabase Auth, row-level security (RLS) on our database, and session token management. In the event of a personal data breach, we will notify the relevant supervisory authority within 72 hours.</p>
     <div class="section-divider"></div>
-
     <h2 id="pp-10">10. International Data Transfers</h2>
-    <p>Your data may be transferred to and processed in countries outside the UK or European Economic Area (EEA), including the United States, where Supabase (AWS infrastructure), RevenueCat, and ElevenLabs are headquartered or operate servers. Such transfers are carried out using appropriate safeguards — including UK International Data Transfer Agreements (IDTAs) or EU Standard Contractual Clauses (SCCs) — as required by the UK GDPR or EU GDPR. You may request a copy of the applicable transfer mechanism by contacting us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a>.</p>
-
+    <p>Your data may be transferred to and processed in countries outside the UK or EEA, including the United States. Such transfers are carried out using appropriate safeguards — including UK IDTAs or EU Standard Contractual Clauses (SCCs). Contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> to request a copy of the applicable transfer mechanism.</p>
     <div class="section-divider"></div>
-
     <h2 id="pp-11">11. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time to reflect changes in the App, our practices, or applicable law. We will notify you of material changes via in-app notification or by email to your registered address at least 14 days before changes take effect. The "Last updated" date at the top of this page indicates when the policy was most recently revised. Continued use of the App after changes take effect constitutes your acceptance of the updated policy.</p>
-
+    <p>We may update this Privacy Policy from time to time. We will notify you of material changes via in-app notification or email at least 14 days before changes take effect.</p>
     <div class="section-divider"></div>
-
     <h2 id="pp-12">12. Contact Us</h2>
-    <p><strong>EDUPEC Ltd</strong><br>
-    Registered in England and Wales<br>
-    Email: <a href="mailto:contact@edupec.uk">contact@edupec.uk</a></p>
+    <p><strong>EDUPEC Ltd</strong><br>Registered in England and Wales<br>Email: <a href="mailto:contact@edupec.uk">contact@edupec.uk</a></p>
   </div>
 </div>
 
 <!-- TERMS & CONDITIONS -->
 <div class="legal-page" id="page-terms">
   <div class="legal-content">
-    <button class="back-btn" onclick="showPage('home')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Back
-    </button>
     <h1>Terms &amp; Conditions</h1>
     <p class="meta">Last updated: 18 May 2026 &middot; EDUPEC Ltd &middot; Registered in England and Wales</p>
-
     <div class="toc">
       <p class="toc-title">Contents</p>
       <ol>
@@ -423,171 +396,52 @@
         <li><a href="#tc-19">Contact Us</a></li>
       </ol>
     </div>
-
     <p>These Terms and Conditions ("Terms") govern your access to and use of the EDUPEC mobile application (the "App") provided by EDUPEC Ltd ("EDUPEC", "we", "us", or "our"), a company registered in England and Wales. By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, do not download or use the App.</p>
-
     <h2 id="tc-1">1. Eligibility</h2>
-    <p>You must be at least 13 years old to create an account and use the App (or at least 16 in jurisdictions where the UK GDPR or EU GDPR applies without verified parental consent). Users under 18 should review these Terms with a parent or guardian. By using the App, you represent and warrant that you meet these age requirements. If we discover that an account belongs to a user below the minimum age, we reserve the right to suspend or delete that account without notice and without liability to you.</p>
-
+    <p>You must be at least 13 years old to create an account (or at least 16 in jurisdictions where UK/EU GDPR applies without verified parental consent). By using the App, you represent that you meet these age requirements.</p>
     <h2 id="tc-2">2. Account Registration</h2>
-    <p>You may explore limited App functionality anonymously (identified by a device ID) before creating an account. To access all features and synchronise your progress across devices, you must register an account using one of the following methods:</p>
-    <ul>
-      <li><strong>Email and password</strong> — you must verify your email address via a confirmation link before your account is fully activated.</li>
-      <li><strong>Sign in with Google</strong> — via Google OAuth, handled through Supabase Auth.</li>
-      <li><strong>Sign in with Apple</strong> — via Apple OAuth, handled through Supabase Auth.</li>
-    </ul>
-    <p>You agree to provide accurate and current information when registering. You are solely responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You must notify us immediately at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> if you suspect any unauthorised access to your account. EDUPEC will not be liable for any loss or damage arising from your failure to maintain the security of your credentials.</p>
-
+    <p>You may explore limited functionality anonymously before creating an account. Full access requires registration via email/password, Google, or Apple sign-in. You agree to provide accurate information and are solely responsible for maintaining the confidentiality of your credentials.</p>
     <h2 id="tc-3">3. Licence Grant</h2>
-    <p>Subject to your compliance with these Terms, EDUPEC grants you a limited, personal, non-exclusive, non-transferable, revocable licence to install and use the App on your own mobile device(s) solely for personal, non-commercial educational purposes. This licence does not include the right to sublicense, copy, modify, distribute, sell, resell, reverse engineer, decompile, disassemble, or create derivative works of the App or any of its content. All rights not expressly granted are reserved by EDUPEC.</p>
-
+    <p>Subject to your compliance with these Terms, EDUPEC grants you a limited, personal, non-exclusive, non-transferable, revocable licence to install and use the App on your own mobile device(s) solely for personal, non-commercial educational purposes. All rights not expressly granted are reserved by EDUPEC.</p>
     <h2 id="tc-4">4. App Features</h2>
-    <p>The App provides the following core learning features. Feature availability varies by subscription tier (Free or Premium):</p>
-    <ul>
-      <li><strong>Vocabulary Training (Flashcards &amp; Spaced Repetition)</strong> — flashcard-based sessions using a proprietary spaced repetition algorithm. Words are presented with their definition, example sentence, synonyms, CEFR level, category, and native language translation. Two question modes are available: type-the-word and fill-the-gap. Knowledge scores per word (0–100) determine review frequency. Free users are limited to 20-word sessions per day; Premium users have unlimited sessions.</li>
-      <li><strong>Grammar Lessons</strong> — 2,200+ structured lessons organised by grammatical topic (verb forms, conditionals, modals, articles, relative clauses, advanced rhetoric, and style). Each lesson includes an explanation and interactive exercises in fill-the-gap and multiple-choice (MCQ) formats. Users may bookmark lessons for review via the "Add to Review" feature.</li>
-      <li><strong>Reading Library</strong> — a curated library of classical and non-fiction texts organised by category and CEFR level. Free users have access to a rotating "Free this month" selection. Full library access requires a Premium subscription or Free Books balance credits. Reading position is saved locally per book.</li>
-      <li><strong>Writing Practice</strong> — AI-powered writing exercises where you respond to a topic prompt. Submissions receive automated feedback including an overall grade (A–D), CEFR level estimate, grammar error annotations, and scores for vocabulary, coherence, grammar, and task achievement. Writing sessions may be saved locally to your device.</li>
-      <li><strong>Listening Practice</strong> — audio-based learning exercises using text-to-speech audio pronunciations powered by ElevenLabs and pre-recorded content.</li>
-      <li><strong>Word Collection</strong> — save vocabulary words to a personal collection for focused review and custom study sessions.</li>
-      <li><strong>Games</strong> — interactive vocabulary and language games designed to reinforce learning in an engaging format. Specific game types and rules are described within the App.</li>
-      <li><strong>Offline Mode</strong> — content is cached locally to allow learning without an internet connection. Offline progress is automatically queued and synced to our servers upon reconnection. Offline content availability depends on your subscription tier.</li>
-    </ul>
-    <p>EDUPEC reserves the right to add, modify, or remove features at any time. We will endeavour to provide reasonable in-app notice of material changes to core features that users rely on.</p>
-
+    <p>The App provides: Vocabulary Training (spaced repetition flashcards), Grammar Lessons (2,200+ structured lessons), Reading Library, Writing Practice (AI-powered feedback), Listening Practice, Word Collection, Games, and Offline Mode. Feature availability varies by subscription tier. EDUPEC reserves the right to add, modify, or remove features at any time.</p>
     <h2 id="tc-5">5. Virtual Currency — Coins &amp; Free Books</h2>
-    <p><strong>Coins</strong> are an in-app virtual currency earned through learning activity (completing vocabulary sessions, grammar lessons, and other exercises). Coins can be used within the App to unlock consumable items such as Streak Freezes and Double Rewards. Coins have no real-world monetary value, cannot be exchanged for cash, cannot be transferred between users, and cannot be redeemed outside the App. Any Coin balance remaining at the time of account deletion is forfeited without compensation.</p>
-    <p><strong>Free Books Balance</strong> consists of credits that may be used to unlock individual books in the Reading Library. Credits are earned through learning activity or included in your subscription. Credits have no monetary value, are non-refundable, and may expire if an account is inactive for an extended period.</p>
-    <p><strong>Double Rewards</strong> is a temporary feature that doubles Coin earnings for a limited period. It is granted automatically under certain conditions within the App and expires at the time displayed in the App.</p>
-    <p>EDUPEC reserves the right to modify the virtual currency economy, earning rates, item costs, and available rewards at any time. We will provide reasonable in-app notice of material changes to the earning or spending value of Coins.</p>
-
+    <p><strong>Coins</strong> are earned through learning activity and used to unlock consumable items. They have no real-world monetary value and cannot be transferred or redeemed outside the App. <strong>Free Books Balance</strong> consists of credits used to unlock individual books. Both are non-refundable and forfeited upon account deletion. EDUPEC reserves the right to modify the virtual currency economy at any time.</p>
     <h2 id="tc-6">6. Streak System &amp; Streak Freezes</h2>
-    <p>The App tracks your daily study streak — the number of consecutive calendar days on which you have completed at least one qualifying learning session. A qualifying session includes completing a vocabulary training session, a grammar lesson, a writing exercise, or another activity designated as streak-eligible in the App.</p>
-    <p>If you do not complete a qualifying session on a given calendar day, your streak is at risk of being reset to zero. Streak Freezes allow you to protect your streak against missed days:</p>
-    <ul>
-      <li>Each Streak Freeze protects against one missed calendar day.</li>
-      <li>Free users may earn Streak Freezes through learning activity.</li>
-      <li>Premium subscribers receive a monthly allocation of Streak Freezes automatically upon their first login each month.</li>
-      <li>When you sign in after missing one or more days, the App will prompt you to use available Streak Freezes — one per missed day. If you have insufficient Streak Freezes or choose not to use them, your streak will reset to zero.</li>
-    </ul>
-    <p>Streak resets are permanent. EDUPEC accepts no responsibility for streak losses resulting from missed sessions, device failure, loss of internet connectivity, App outages, system clock discrepancies, timezone changes, or any other cause outside EDUPEC's direct control. Streak data is a product of your own learning behaviour and EDUPEC makes no representations about its long-term availability or accuracy.</p>
-
+    <p>The App tracks your daily study streak. Streak Freezes protect against missed days: free users may earn them through activity; premium subscribers receive a monthly allocation. Streak resets are permanent. EDUPEC accepts no responsibility for streak losses from missed sessions, device failure, connectivity issues, or other causes outside EDUPEC's direct control.</p>
     <h2 id="tc-7">7. Subscriptions &amp; Payments</h2>
-
-    <h3>7.1 Premium Subscription</h3>
-    <p>A Premium subscription unlocks additional features including unlimited vocabulary sessions, a monthly Streak Freeze allocation, enhanced offline content caching, and full Reading Library access. Premium subscriptions are offered on a monthly or annual basis at prices displayed in the App at the time of purchase. Prices are inclusive of any applicable taxes where required by law.</p>
-
-    <h3>7.2 Billing</h3>
-    <p>All subscriptions are purchased and billed through the Apple App Store (iOS) or Google Play Store (Android). Payment is charged to your App Store or Play Store account upon confirmation of purchase. EDUPEC does not directly process, store, or have access to your payment card information.</p>
-
-    <h3>7.3 Auto-Renewal</h3>
-    <p>Subscriptions automatically renew at the end of each billing period (monthly or annual) unless you cancel at least 24 hours before the renewal date. You will be reminded of upcoming renewals in accordance with Apple App Store or Google Play policies. The renewal charge is at the same price as the original subscription unless you have been notified of a price change in advance.</p>
-
-    <h3>7.4 Cancellation</h3>
-    <p>You may cancel your subscription at any time through your Apple App Store or Google Play account settings. Cancellation takes effect at the end of your current billing period. You will retain access to Premium features until the period ends. No partial refunds are issued for any unused portion of a billing period, except where required by applicable consumer law.</p>
-
-    <h3>7.5 Refunds</h3>
-    <p>All refund requests are governed by the refund policies of the Apple App Store or Google Play. EDUPEC does not issue refunds directly. To request a refund, contact Apple Support or Google Play Support through their respective platforms. Nothing in this clause limits any statutory rights you may have as a consumer under the laws of England and Wales or your country of residence.</p>
-
-    <h3>7.6 Restore Purchases</h3>
-    <p>If you reinstall the App or switch to a new device, you can restore your prior subscription using the "Restore Purchases" option in the App's account settings. Subscription status is verified in real time via RevenueCat.</p>
-
-    <h3>7.7 Price Changes</h3>
-    <p>EDUPEC may change subscription prices at any time. Where required by applicable law or App Store policy, you will be notified of price changes before your next renewal date and given the opportunity to cancel before the new price takes effect. Continued subscription after a price change constitutes acceptance of the new price.</p>
-
+    <p>Premium subscriptions are purchased and billed through Apple App Store or Google Play. Subscriptions auto-renew unless cancelled at least 24 hours before the renewal date. Cancellation takes effect at the end of the current billing period with no partial refunds, except where required by consumer law. All refund requests are governed by Apple or Google refund policies.</p>
     <h2 id="tc-8">8. AI Writing Feature</h2>
-    <p>The Writing Practice feature uses third-party AI services to generate automated feedback on your writing submissions. By submitting text through this feature, you:</p>
-    <ul>
-      <li>Acknowledge that your submitted text will be transmitted to our AI subprocessor for processing solely to generate feedback.</li>
-      <li>Confirm that the text you submit does not contain unlawful, defamatory, harassing, hateful, obscene, or privacy-violating content, or content that infringes the intellectual property rights of any third party.</li>
-      <li>Understand that AI-generated feedback is provided for educational purposes only and does not constitute professional language certification, formal assessment, or any form of legal, medical, or other expert advice.</li>
-      <li>Understand that AI feedback may contain errors or inaccuracies and should be used as a learning guide rather than a definitive linguistic authority.</li>
-      <li>Understand that the AI grading system (A–D grades and CEFR level estimates) is a heuristic tool and does not produce legally binding assessments of your language proficiency.</li>
-    </ul>
-    <p>EDUPEC is not responsible for the accuracy, completeness, or fitness for purpose of AI-generated writing feedback. You should not rely on AI feedback for any high-stakes language assessment or certification purpose.</p>
-
+    <p>By submitting text through Writing Practice, you acknowledge it will be transmitted to our AI subprocessor solely to generate feedback, confirm the text does not contain unlawful or infringing content, and understand that AI feedback is for educational purposes only and may contain inaccuracies. EDUPEC is not responsible for the accuracy or fitness for purpose of AI-generated feedback.</p>
     <h2 id="tc-9">9. Offline Mode &amp; Sync</h2>
-    <p>The App supports offline use by caching certain content locally on your device. When you are offline:</p>
-    <ul>
-      <li>Previously cached vocabulary, grammar lessons, and exercises are available for continued study.</li>
-      <li>Learning actions (such as completing a grammar lesson) are queued locally in an offline sync queue and automatically submitted to our servers when internet connectivity is restored.</li>
-      <li>Streak data and progress are maintained locally and reconciled server-side upon reconnection.</li>
-      <li>Not all content is available offline. Premium subscribers have access to a broader range of cached content than Free users.</li>
-    </ul>
-    <p>EDUPEC does not guarantee that all App content or features will be accessible offline. EDUPEC accepts no liability for data loss, progress loss, or streak resets arising from sync failures, device storage limitations, App uninstallation, or extended periods of offline use.</p>
-
+    <p>The App supports offline learning by caching content locally. Offline progress is queued and synced upon reconnection. EDUPEC does not guarantee all content will be available offline and accepts no liability for data loss arising from sync failures, device storage limitations, or extended offline use.</p>
     <h2 id="tc-10">10. Acceptable Use</h2>
-    <p>You agree not to use the App in any way that:</p>
-    <ul>
-      <li>Violates any applicable local, national, or international law or regulation</li>
-      <li>Is fraudulent, deceptive, or misleading</li>
-      <li>Involves reverse engineering, decompiling, disassembling, or otherwise attempting to derive the source code of the App</li>
-      <li>Uses automated scripts, bots, scrapers, macros, or other automated means to interact with the App, circumvent session limits, or artificially inflate streaks or Coin balances</li>
-      <li>Attempts to gain unauthorised access to EDUPEC's systems, servers, databases, or other users' accounts</li>
-      <li>Interferes with or disrupts the integrity, performance, or availability of the App or its infrastructure</li>
-      <li>Exploits, harms, or attempts to exploit or harm minors in any way</li>
-      <li>Submits false, misleading, or harmful content through the Writing Practice feature or any other input</li>
-      <li>Reproduces, distributes, or publicly displays App content (including vocabulary, grammar lessons, or reading texts) without our prior written permission</li>
-    </ul>
-    <p>Violation of these rules may result in immediate suspension or permanent termination of your account without notice and without refund of any subscription fees.</p>
-
+    <p>You agree not to: violate any applicable law; reverse engineer or decompile the App; use automated scripts to circumvent session limits or inflate streaks; attempt unauthorised access to EDUPEC systems; submit harmful or infringing content; or reproduce App content without prior written permission. Violations may result in immediate account termination without refund.</p>
     <h2 id="tc-11">11. Intellectual Property</h2>
-    <p>All content within the App — including but not limited to the vocabulary database, phrasal verb library, grammar lessons and exercises, example sentences, audio recordings (including ElevenLabs-generated pronunciations), user interface design, illustrations, branding, software code, and selection and arrangement of content — is the property of EDUPEC Ltd or its licensors and is protected by copyright, trademark, database rights, and other intellectual property laws of England and Wales and applicable international treaties.</p>
-    <p>Your use of the App does not grant you any ownership rights in any App content. You may not reproduce, copy, republish, distribute, publicly display, or commercially exploit any App content without prior written permission from EDUPEC.</p>
-    <p>Classical public domain literary texts included in the Reading Library (such as works by Jane Austen, Fyodor Dostoevsky, Friedrich Nietzsche, Marcus Aurelius, Charlotte Brontë, and F. Scott Fitzgerald) remain in the public domain. However, EDUPEC's selection, curation, structuring, and presentation of such texts within the App is proprietary and protected.</p>
-
+    <p>All App content — including the vocabulary database, grammar lessons, audio recordings, UI design, software code, and selection of content — is the property of EDUPEC Ltd or its licensors and is protected by copyright and other intellectual property laws. Classical public domain texts in the Reading Library remain in the public domain; however, EDUPEC's curation and presentation of such texts is proprietary.</p>
     <h2 id="tc-12">12. Disclaimer of Warranties</h2>
-    <p>The App is provided on an "as is" and "as available" basis, without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement. To the fullest extent permitted by applicable law, EDUPEC does not warrant that:</p>
-    <ul>
-      <li>The App will be uninterrupted, error-free, or free from harmful components at all times</li>
-      <li>Any errors or defects in the App will be corrected within a given timeframe</li>
-      <li>Your use of the App will result in specific language learning outcomes or English proficiency improvements</li>
-      <li>AI-generated writing feedback will be accurate, complete, or appropriate for your individual needs</li>
-      <li>The App will be available in all geographic locations</li>
-    </ul>
-    <p>Nothing in this section affects your statutory rights as a consumer under the laws of England and Wales or your country of residence, including any implied terms that cannot be excluded by law.</p>
-
+    <p>The App is provided on an "as is" and "as available" basis without warranties of any kind. EDUPEC does not warrant that the App will be uninterrupted, error-free, or that its use will result in specific language learning outcomes. Nothing in this section affects your statutory rights as a consumer under the laws of England and Wales.</p>
     <h2 id="tc-13">13. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by applicable law, EDUPEC Ltd and its officers, directors, employees, contractors, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to your use of, or inability to use, the App, including but not limited to:</p>
-    <ul>
-      <li>Loss of data, progress records, study streaks, or virtual items (Coins, Streak Freezes, Free Books credits)</li>
-      <li>Loss of access due to account suspension or termination in accordance with these Terms</li>
-      <li>Errors or inaccuracies in AI writing feedback or spaced repetition scheduling</li>
-      <li>Service interruptions, downtime, or data loss arising from third-party infrastructure (Supabase, RevenueCat, ElevenLabs, Apple, Google)</li>
-    </ul>
-    <p>Our total aggregate liability to you for any and all claims arising out of or relating to these Terms or the App shall not exceed the greater of: (a) the total amount you have paid to EDUPEC (via Apple or Google) in the 12 months immediately preceding the event giving rise to the claim; or (b) £50.</p>
-    <p>Nothing in these Terms limits or excludes EDUPEC's liability for: (i) death or personal injury caused by our negligence; (ii) fraud or fraudulent misrepresentation; (iii) any liability that cannot lawfully be limited or excluded under the laws of England and Wales; or (iv) any liability under the Consumer Rights Act 2015 that cannot be excluded.</p>
-
+    <p>To the maximum extent permitted by law, EDUPEC shall not be liable for indirect, incidental, or consequential damages. Our total aggregate liability shall not exceed the greater of the total amount you have paid to EDUPEC in the preceding 12 months or £50. Nothing limits EDUPEC's liability for death or personal injury caused by negligence, fraud, or any liability that cannot lawfully be limited under the laws of England and Wales.</p>
     <h2 id="tc-14">14. Indemnification</h2>
-    <p>You agree to indemnify, defend, and hold harmless EDUPEC Ltd and its officers, directors, employees, contractors, and agents from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable legal fees) arising from: (a) your use of the App in material violation of these Terms; (b) your submission of unlawful or infringing content through the App; or (c) your violation of any applicable law or the rights of any third party in connection with your use of the App.</p>
-
+    <p>You agree to indemnify and hold harmless EDUPEC Ltd and its officers, directors, employees, and agents from any claims arising from your material violation of these Terms, submission of unlawful content, or violation of any third party's rights.</p>
     <h2 id="tc-15">15. Account Termination</h2>
-    <p>You may delete your account at any time through the App's account settings. Upon deletion, your personal data will be removed in accordance with our Privacy Policy, and all virtual balances (Coins, Streak Freezes, Free Books credits) will be permanently forfeited without compensation.</p>
-    <p>EDUPEC may suspend or permanently terminate your account without prior notice if you: materially violate these Terms; engage in fraudulent, abusive, or illegal activity; or pose a risk to the security or integrity of the App or its users. Upon termination by EDUPEC for cause, you are not entitled to a refund of any subscription fees paid for the current billing period, except where required by applicable consumer law.</p>
-    <p>If EDUPEC discontinues the App entirely, we will provide at least 30 days' advance notice and, where applicable under consumer law, a pro-rated refund for unused prepaid subscription periods.</p>
-
+    <p>You may delete your account at any time through App settings. Upon deletion, all virtual balances are permanently forfeited. EDUPEC may suspend or terminate your account without notice for material violations of these Terms, fraudulent activity, or security risks. If EDUPEC discontinues the App, at least 30 days' advance notice will be provided.</p>
     <h2 id="tc-16">16. Changes to the App &amp; Terms</h2>
-    <p>EDUPEC reserves the right to modify, update, suspend, or discontinue any feature or aspect of the App at any time. We will endeavour to provide reasonable in-app notice of material changes to core features that users rely on.</p>
-    <p>We may revise these Terms at any time. Updated Terms will be posted at our website and within the App, with the "Last updated" date revised accordingly. We will provide at least 14 days' notice of material changes via in-app notification or by email to your registered address. Your continued use of the App after the effective date of any revision constitutes your acceptance of the updated Terms. If you do not accept the revised Terms, you must cease using the App and may delete your account.</p>
-
+    <p>EDUPEC reserves the right to modify any aspect of the App at any time with reasonable in-app notice. Updated Terms will be posted with at least 14 days' notice of material changes. Continued use after the effective date constitutes acceptance of the updated Terms.</p>
     <h2 id="tc-17">17. Governing Law &amp; Dispute Resolution</h2>
-    <p>These Terms are governed by and construed in accordance with the laws of England and Wales. Any dispute arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales, subject to any mandatory provisions of consumer protection law in your country of residence that cannot be excluded by contract.</p>
-    <p>Before initiating formal legal proceedings, we ask that you contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> to attempt an informal resolution. We will endeavour to respond to complaints within 14 days. If you are a consumer resident in the EU, you may also have the right to use the EU Online Dispute Resolution (ODR) platform at <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.</p>
-
+    <p>These Terms are governed by the laws of England and Wales. Before initiating formal proceedings, please contact us at <a href="mailto:contact@edupec.uk">contact@edupec.uk</a> to attempt informal resolution. EU residents may use the EU ODR platform at <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.</p>
     <h2 id="tc-18">18. Severability</h2>
-    <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, or if modification is not possible, severed from the Terms. The validity, legality, and enforceability of the remaining provisions shall not be affected or impaired in any way.</p>
-
+    <p>If any provision of these Terms is found invalid or unenforceable, it shall be modified to the minimum extent necessary, or severed if modification is not possible, without affecting the remaining provisions.</p>
     <h2 id="tc-19">19. Contact Us</h2>
-    <p>If you have any questions, complaints, or requests regarding these Terms, please contact us:</p>
-    <p><strong>EDUPEC Ltd</strong><br>
-    Registered in England and Wales<br>
-    Email: <a href="mailto:contact@edupec.uk">contact@edupec.uk</a></p>
+    <p><strong>EDUPEC Ltd</strong><br>Registered in England and Wales<br>Email: <a href="mailto:contact@edupec.uk">contact@edupec.uk</a></p>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <span class="footer-copy">&copy; 2026 EDUPEC Ltd. Registered in England and Wales.</span>
-  <nav class="footer-links">
+  <nav class="footer-links" aria-label="Legal links">
     <a href="#privacy" onclick="showPage('privacy');return false;">Privacy Policy</a>
     <a href="#terms" onclick="showPage('terms');return false;">Terms &amp; Conditions</a>
     <a href="mailto:contact@edupec.uk">Contact</a>
@@ -637,12 +491,6 @@ function handleHash(){
 
 window.addEventListener('hashchange',handleHash);
 window.addEventListener('load',handleHash);
-
-function handleNotify(e){
-  e.preventDefault();
-  document.getElementById('notify-form').style.display='none';
-  document.getElementById('notify-success').style.display='inline-flex';
-}
 
 document.querySelectorAll('.legal-page').forEach(el=>el.style.display='none');
 </script>
